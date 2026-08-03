@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Banner from "@/components/shared/Banner.astro";
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ProductCard from "@/components/productos/ProductCard.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { banner, productosPage } from "@/constants/productos";
+
+const productos = (await getCollection("productos")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout title={banner.subtitle} description={productosPage.text}>
+  <Banner
+    title={banner.title}
+    subtitle={banner.subtitle}
+    image={banner.image}
+    imageAlt={banner.imageAlt}
+  />
+
+  <section class="bg-canvas">
+    <div class="container-x py-16 lg:py-24">
+      <SectionHeading
+        topTag={productosPage.topTag}
+        title={productosPage.title}
+        text={productosPage.text}
+        align="center"
+      />
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          productos.map((producto, index) => (
+            <ScrollReveal client:visible delay={(index % 3) * 0.1} className="h-full">
+              <ProductCard
+                producto={producto}
+                cta={productosPage.cta}
+                loading={index < 3 ? "eager" : "lazy"}
+              />
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

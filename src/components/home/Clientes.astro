@@ -1,0 +1,36 @@
+---
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ClientesSlider, {
+  type ClientLogo,
+} from "@/components/home/ClientesSlider";
+import { clientesSection } from "@/constants/home";
+
+// Los logos viven en src/assets/images/marcas: agregar un archivo basta.
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/marcas/*.{png,jpg,jpeg,webp,avif,svg}",
+  { eager: true },
+);
+
+const logos: ClientLogo[] = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod], index) => ({
+    src: mod.default.src,
+    alt: `${clientesSection.logoAlt} ${index + 1}`,
+    width: mod.default.width,
+    height: mod.default.height,
+  }));
+---
+
+<section class="bg-panel">
+  <div class="container-x py-16 lg:py-20">
+    <SectionHeading
+      topTag={clientesSection.topTag}
+      title={clientesSection.title}
+      align="center"
+    />
+
+    <div class="mt-12">
+      <ClientesSlider client:visible logos={logos} />
+    </div>
+  </div>
+</section>

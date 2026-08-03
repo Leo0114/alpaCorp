@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import ThemeToggle from "@/components/shared/ThemeToggle.astro";
+import { navLinks, site } from "@/constants/site";
+
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href);
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-white/10 bg-primary">
+  <nav
+    class="container-x flex h-20 items-center justify-between gap-6"
+    aria-label="Navegación principal"
+  >
+    <a
+      href="/"
+      class="flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+    >
+      <Image
+        src={site.logo}
+        alt={site.logoAlt}
+        widths={[160, 320]}
+        sizes="160px"
+        loading="eager"
+        class="h-11 w-auto object-contain"
+      />
+      <span class="sr-only">{site.name}</span>
+    </a>
+
+    <ul class="hidden items-center gap-1 lg:flex">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+              class:list={[
+                "relative rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-colors duration-200",
+                isActive(link.href)
+                  ? "text-secondary"
+                  : "text-white/85 hover:text-secondary",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <div class="hidden lg:block">
+        <ThemeToggle />
+      </div>
+
+      <button
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+        class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-colors duration-200 hover:bg-white/20 lg:hidden"
+      >
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    data-nav-menu
+    hidden
+    class="border-t border-white/10 bg-primary lg:hidden"
+  >
+    <ul class="container-x flex flex-col gap-1 py-4">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+              class:list={[
+                "block rounded-lg px-3 py-3 text-sm font-semibold uppercase tracking-widest transition-colors duration-200",
+                isActive(link.href)
+                  ? "bg-white/10 text-secondary"
+                  : "text-white/85 hover:bg-white/10 hover:text-secondary",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="pt-2">
+        <ThemeToggle />
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  function setupNav() {
+    const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
+    if (!toggle || !menu) return;
+
+    const close = () => {
+      menu.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menú");
+    };
+
+    close();
+
+    toggle.addEventListener("click", () => {
+      const willOpen = menu.hidden;
+      menu.hidden = !willOpen;
+      toggle.setAttribute("aria-expanded", String(willOpen));
+      toggle.setAttribute("aria-label", willOpen ? "Cerrar menú" : "Abrir menú");
+    });
+
+    menu.addEventListener("click", (event) => {
+      if ((event.target as Element).closest("a")) close();
+    });
+  }
+
+  // Un solo listener global: el menú se cierra con Escape en cualquier página.
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
+    const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    if (!menu || !toggle) return;
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menú");
+  });
+
+  setupNav();
+  document.addEventListener("astro:page-load", setupNav);
+</script>

@@ -2,29 +2,93 @@
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import { SEO } from "astro-seo";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import ScrollTop from "@/components/shared/ScrollTop.astro";
+import WhatsApp from "@/components/shared/WhatsApp.astro";
+import { Toaster } from "@/components/shared/Toaster";
+import { site } from "@/constants/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+
+const pageTitle = title ? `${title} | ${site.shortName}` : `${site.shortName} | ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/ico.png" />
-    <link rel="icon" href="/ico.png" />
-    <ClientRouter />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+    />
     <meta name="generator" content={Astro.generator} />
-    <title>Alpa Corp</title>
+
+    <SEO
+      title={pageTitle}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title: pageTitle,
+          type: "website",
+          url: canonical,
+          image: new URL("/logo.png", Astro.site ?? Astro.url).href,
+        },
+        optional: {
+          siteName: site.legalName,
+          description,
+        },
+      }}
+      twitter={{ card: "summary_large_image" }}
+    />
+
+    <ClientRouter />
+
+    {/* Evita el flash de tema: se aplica antes del primer paint. */}
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const isDark = stored ? stored === "dark" : prefersDark;
+        document.documentElement.classList.toggle("dark", isDark);
+      })();
+    </script>
   </head>
-  <body>
-    <slot />
+
+  <body class="flex min-h-screen flex-col bg-canvas text-ink">
+    <Navbar />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <ScrollTop />
+    <WhatsApp />
+    <Toaster client:idle />
+
+    {/* El tema debe re-aplicarse tras cada view transition. */}
+    <script is:inline>
+      document.addEventListener("astro:after-swap", () => {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const isDark = stored ? stored === "dark" : prefersDark;
+        document.documentElement.classList.toggle("dark", isDark);
+      });
+    </script>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

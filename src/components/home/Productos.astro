@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ProductCard from "@/components/productos/ProductCard.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { Button } from "@/components/ui/Button";
+import { productosSection } from "@/constants/home";
+
+const productos = (await getCollection("productos")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<section id="productos" class="bg-panel">
+  <div class="container-x py-16 lg:py-24">
+    <SectionHeading
+      topTag={productosSection.topTag}
+      title={productosSection.title}
+      align="center"
+    />
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        productos.map((producto, index) => (
+          <ScrollReveal client:visible delay={(index % 3) * 0.1} className="h-full">
+            <ProductCard producto={producto} cta={productosSection.cta} />
+          </ScrollReveal>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <Button variant="secondary" size="lg" href={productosSection.href}>
+        {productosSection.ctaAll}
+      </Button>
+    </div>
+  </div>
+</section>

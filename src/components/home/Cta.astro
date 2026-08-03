@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { Button } from "@/components/ui/Button";
+import { ctaComponent } from "@/constants/home";
+---
+
+<section class="relative isolate overflow-hidden bg-primary">
+  <Image
+    src={ctaComponent.image}
+    alt={ctaComponent.imageAlt}
+    widths={[640, 1024, 1600]}
+    sizes="100vw"
+    loading="lazy"
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-br from-primary via-primary/95 to-black/90"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-x py-16 lg:py-24">
+    <ScrollReveal client:visible>
+      <div class="max-w-3xl">
+        <p
+          class="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary"
+        >
+          {ctaComponent.topTag}
+        </p>
+        <h2
+          class="font-display text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl"
+        >
+          {ctaComponent.title}
+        </h2>
+        <span class="mt-6 block h-1 w-16 rounded-full bg-secondary"></span>
+        <p class="mt-6 text-base leading-relaxed text-white/80">
+          {ctaComponent.p1}
+        </p>
+        <Button
+          variant="secondary"
+          size="lg"
+          href={ctaComponent.href}
+          className="mt-8"
+        >
+          {ctaComponent.bgButton}
+        </Button>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

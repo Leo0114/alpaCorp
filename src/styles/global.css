@@ -3,7 +3,58 @@
 
 @custom-variant dark (&:where(.dark,.dark *));
 
+/* -------------------------------------------------------------------------
+   Design tokens. Los neutros viven en :root / .dark para que el cambio de
+   tema sólo tenga que reescribir el valor de la variable.
+   ---------------------------------------------------------------------- */
+:root {
+  --canvas: #ffffff;
+  --panel: #f3f4f9;
+  --ink: #101223;
+  --muted: #5b6076;
+  --line: #e3e5ef;
+}
+
+.dark {
+  --canvas: #0a0b16;
+  --panel: #14162a;
+  --ink: #eef0f8;
+  --muted: #a4a9c0;
+  --line: #272b47;
+}
+
 @theme inline {
   --color-primary: #262a73; /* main   */
   --color-secondary: #33ce31; /* green  */
+  --color-strategic: var(--color-secondary);
+
+  --color-canvas: var(--canvas);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-secondary text-primary;
+  }
+}
+
+@layer utilities {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
 }

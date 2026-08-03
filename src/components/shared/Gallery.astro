@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  /** Folder name inside src/assets/images/gal/. Path is resolved automatically. */
+  /** Folder name inside src/assets/images/. Path is resolved automatically. */
   name: string;
   title?: string;
 }
@@ -11,12 +11,12 @@ const { name, title } = Astro.props;
 
 // Eagerly load every gallery image; we filter to the requested folder.
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-  "../../assets/images/gal/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG}",
+  "../../assets/images/**/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG}",
   { eager: true },
 );
 
 const images = Object.entries(modules)
-  .filter(([path]) => path.includes(`/gal/${name}/`))
+  .filter(([path]) => path.includes(`/${name}/`))
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod]) => mod.default);
 

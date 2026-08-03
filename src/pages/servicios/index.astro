@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Banner from "@/components/shared/Banner.astro";
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ServiceCard from "@/components/servicios/ServiceCard.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { banner } from "@/constants/servicios";
+import { ctaComponent, serviciosSection } from "@/constants/home";
+
+const servicios = (await getCollection("servicios")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Layout title={banner.title} description={ctaComponent.p1}>
+  <Banner
+    title={banner.title}
+    subtitle={banner.subtitle}
+    image={banner.image}
+    imageAlt={banner.imageAlt}
+  />
+
+  <section class="bg-canvas">
+    <div class="container-x py-16 lg:py-24">
+      <SectionHeading
+        topTag={ctaComponent.topTag}
+        title={ctaComponent.title}
+        text={ctaComponent.p1}
+        align="center"
+      />
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {
+          servicios.map((servicio, index) => (
+            <ScrollReveal client:visible delay={index * 0.1} className="h-full">
+              <ServiceCard servicio={servicio} cta={serviciosSection.cta} />
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

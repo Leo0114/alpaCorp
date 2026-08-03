@@ -1,6 +1,11 @@
 import React from "react";
 
-export type ButtonVariant = "primary" | "black&white" | "simple" | "glass";
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "black&white"
+  | "simple"
+  | "glass";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -34,7 +39,7 @@ export const Button = React.forwardRef<
   ) => {
     // Determine base classes
     const baseClasses =
-      "inline-flex items-center justify-center gap-2 transition-transform duration-300 font-semibold uppercase tracking-[0.2em]";
+      "inline-flex items-center justify-center gap-2 transition-all duration-300 font-semibold uppercase tracking-[0.2em] cursor-pointer";
 
     // Determine sizes
     let sizeClasses = "";
@@ -61,6 +66,11 @@ export const Button = React.forwardRef<
       case "primary":
         variantClasses =
           "bg-ink text-canvas rounded-full hover:-translate-y-0.5";
+        break;
+      // Verde de marca que vira a primary en hover (identidad AlpaCorp).
+      case "secondary":
+        variantClasses =
+          "rounded-full bg-secondary text-white hover:bg-primary hover:-translate-y-0.5";
         break;
       case "black&white":
         variantClasses = "rounded-full hover:-translate-y-0.5";

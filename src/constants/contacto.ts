@@ -1,18 +1,64 @@
-import logo from "@/assets/images/logo.png";
 import image from "@/assets/images/4786.avif";
 
-export const nuestraEmpres = {
-  title: "Empaques Industriales ALPA",
-  topTag: "NUESTRA EMPRESA",
-  bgButton: "Saber más",
-  href: "/quienes-somos",
-  p1: "Desde su establecimiento en 1993 por el Ing. Alfonso Antillón, nuestra empresa se ha comprometido con el suministro de empaques industriales de madera para satisfacer las necesidades de la industria en Monterrey.",
-  p2: "Nos especializamos en el manejo de maderas de pino, tanto nacionales como importadas, para la fabricación de productos que responden a las demandas específicas de nuestros clientes. Nuestra misión es proporcionar soluciones que optimicen el uso de sus recursos y aseguren la protección efectiva de sus productos, todo respaldado por un servicio de calidad impecable.",
-  p3: "Con más de 30 años de experiencia en el mercado, hemos perfeccionado la producción de empaques industriales de madera de alta calidad. Continuamos avanzando y aceptando nuevos desafíos para seguir creciendo y superando las expectativas de nuestros clientes.",
+export const banner = {
+  title: "Contacto",
+  subtitle: "Tarimas y Empaques Industriales",
+  image,
+  imageAlt: "Planta de Empaques Industriales ALPA",
 };
 
-export const ctaComponent = {
-  title: "NUESTROS SERVICIOS",
-  topTag: "PROFESIONALES",
-  p1: "Nuestros procesos productivos y administrativos se flexibilizan a la necesidad de nuestros clientes, donde proveemos desde un simple pallet hasta un sistema de administración de inventarios con el cual el cliente no se tiene que preocupar por niveles de inventario o por caer en stockout.",
+export const contactCta = {
+  topTag: "ESTAMOS PARA AYUDARTE",
+  title: "Hablemos de tu proyecto",
+  text: "Cuéntanos qué necesitas transportar, almacenar o exportar y te ayudamos a definir el empaque de madera adecuado.",
+  whatsappLabel: "Envíanos un WhatsApp",
+};
+
+export const contactForm = {
+  topTag: "FORMULARIO",
+  title: "Escríbenos",
+  text: "Responderemos tu solicitud en el menor tiempo posible.",
+  submit: "Enviar",
+  submitting: "Enviando...",
+  successTitle: "¡Mensaje enviado!",
+  successText: "Gracias por escribirnos, te contactaremos muy pronto.",
+  errorTitle: "No pudimos enviar tu mensaje",
+  errorText: "Inténtalo de nuevo o escríbenos por WhatsApp.",
+  fields: {
+    nombre: {
+      label: "Nombre completo",
+      placeholder: "Juan Pérez",
+    },
+    correo: {
+      label: "Correo electrónico",
+      placeholder: "correo@empresa.com",
+    },
+    telefono: {
+      label: "Teléfono",
+      placeholder: "81 1234 5678",
+    },
+    mensaje: {
+      label: "Mensaje",
+      placeholder: "Cuéntanos qué necesitas...",
+    },
+  },
+  errors: {
+    nombreMin: "Escribe tu nombre completo (mínimo 3 caracteres).",
+    correoInvalid: "Escribe un correo electrónico válido.",
+    telefonoMin: "Escribe un teléfono de al menos 10 dígitos.",
+    telefonoInvalid: "El teléfono sólo puede contener números.",
+    mensajeMin: "Cuéntanos un poco más (mínimo 10 caracteres).",
+  },
+};
+
+export const mail = {
+  /** Remitente verificado en Resend (configurable con CONTACT_FROM_EMAIL). */
+  from: "AlpaCorp Web <onboarding@resend.dev>",
+  subject: (nombre: string) => `Nuevo mensaje de ${nombre} desde alpacorp.mx`,
+};
+
+export const mapSection = {
+  topTag: "DÓNDE ESTAMOS",
+  title: "Visítanos",
+  iframeTitle: "Mapa de ubicación de Empaques Industriales Alpa",
 };

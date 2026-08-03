@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { Button } from "@/components/ui/Button";
+import { nuestraEmpres } from "@/constants/home";
+
+interface Props {
+  /** El CTA sobra cuando el componente vive en la propia página de Quienes Somos. */
+  showCta?: boolean;
+  id?: string;
+}
+
+const { showCta = true, id = "nuestra-empresa" } = Astro.props;
+---
+
+<section id={id} class="bg-canvas">
+  <div class="container-x grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
+    <ScrollReveal client:visible direction="right">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary">
+        {nuestraEmpres.topTag}
+      </p>
+      <h2
+        class="font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl lg:text-4xl"
+      >
+        {nuestraEmpres.title}
+      </h2>
+      <span class="mt-6 block h-1 w-16 rounded-full bg-secondary"></span>
+
+      <div class="mt-6 space-y-4 text-base leading-relaxed text-muted">
+        <p>{nuestraEmpres.p1}</p>
+        <p>{nuestraEmpres.p2}</p>
+        <p>{nuestraEmpres.p3}</p>
+      </div>
+
+      {
+        showCta && (
+          <Button
+            variant="secondary"
+            size="lg"
+            href={nuestraEmpres.href}
+            className="mt-8"
+          >
+            {nuestraEmpres.bgButton}
+          </Button>
+        )
+      }
+    </ScrollReveal>
+
+    <ScrollReveal client:visible direction="left" delay={0.1}>
+      <div class="relative">
+        <Image
+          src={nuestraEmpres.image}
+          alt={nuestraEmpres.imageAlt}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          loading="lazy"
+          class="aspect-4/3 w-full rounded-2xl object-cover shadow-xl"
+        />
+        <div
+          class="absolute -bottom-6 -left-6 hidden rounded-2xl border border-line bg-canvas p-5 shadow-xl sm:block"
+        >
+          <Image
+            src={nuestraEmpres.logo}
+            alt={nuestraEmpres.logoAlt}
+            widths={[160, 320]}
+            sizes="160px"
+            loading="lazy"
+            class="h-16 w-auto object-contain"
+          />
+        </div>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

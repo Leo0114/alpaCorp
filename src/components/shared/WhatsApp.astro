@@ -1,0 +1,23 @@
+---
+import { FaWhatsapp } from "react-icons/fa";
+import { whatsapp } from "@/constants/site";
+---
+
+<a
+  href={whatsapp.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={whatsapp.label}
+  class="group fixed bottom-8 left-6 z-50 flex items-center gap-3 rounded-full bg-secondary py-3 pl-3 pr-4 text-white shadow-lg shadow-secondary/30 transition-all duration-300 hover:bg-primary hover:shadow-primary/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:bottom-8 sm:left-8"
+>
+  <span
+    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 text-xl"
+  >
+    <FaWhatsapp aria-hidden="true" />
+  </span>
+  <span
+    class="max-w-0 overflow-hidden whitespace-nowrap text-xs font-semibold uppercase tracking-widest opacity-0 transition-all duration-300 group-hover:max-w-[14rem] group-hover:opacity-100 group-focus-visible:max-w-[14rem] group-focus-visible:opacity-100 sm:max-w-[14rem] sm:opacity-100"
+  >
+    {whatsapp.label}
+  </span>
+</a>

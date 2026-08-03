@@ -3,33 +3,33 @@ import { Image } from "astro:assets";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Gallery from "@/components/shared/Gallery.astro";
-import ProductCard from "@/components/productos/ProductCard.astro";
+import ServiceCard from "@/components/servicios/ServiceCard.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { Button } from "@/components/ui/Button";
-import { productoDetalle, productosPage } from "@/constants/productos";
+import { servicioDetalle } from "@/constants/servicios";
+import { serviciosSection } from "@/constants/home";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const productos = await getCollection("productos");
-  return productos.map((producto) => ({
-    params: { slug: producto.id },
-    props: { producto },
+  const servicios = await getCollection("servicios");
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.id },
+    props: { servicio },
   }));
 }
 
 interface Props {
-  producto: CollectionEntry<"productos">;
+  servicio: CollectionEntry<"servicios">;
 }
 
-const { producto } = Astro.props;
-const { name, description, Image: cover, gallery } = producto.data;
-const { Content } = await render(producto);
+const { servicio } = Astro.props;
+const { name, description, Image: cover, gallery } = servicio.data;
+const { Content } = await render(servicio);
 
-const relacionados = (await getCollection("productos"))
-  .filter((item) => item.id !== producto.id)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+const otros = (await getCollection("servicios"))
+  .filter((item) => item.id !== servicio.id)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout title={name} description={description}>
@@ -40,7 +40,7 @@ const relacionados = (await getCollection("productos"))
       widths={[640, 1024, 1600]}
       sizes="100vw"
       loading="eager"
-      transition:name={`producto-img-${producto.id}`}
+      transition:name={`servicio-img-${servicio.id}`}
       class="absolute inset-0 -z-10 h-full w-full object-cover"
     />
     <div
@@ -51,7 +51,7 @@ const relacionados = (await getCollection("productos"))
 
     <div class="container-x py-20 sm:py-24 lg:py-28">
       <a
-        href="/productos"
+        href={servicioDetalle.backHref}
         class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition-colors duration-200 hover:text-secondary"
       >
         <svg
@@ -66,12 +66,12 @@ const relacionados = (await getCollection("productos"))
         >
           <path d="M19 12H5M11 18l-6-6 6-6"></path>
         </svg>
-        {productoDetalle.backLabel}
+        {servicioDetalle.backLabel}
       </a>
 
       <h1
         class="mt-6 max-w-3xl font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl"
-        transition:name={`producto-name-${producto.id}`}
+        transition:name={`servicio-name-${servicio.id}`}
       >
         {name}
       </h1>
@@ -86,7 +86,7 @@ const relacionados = (await getCollection("productos"))
     <div class="container-x grid gap-12 py-16 lg:grid-cols-3 lg:py-24">
       <div class="lg:col-span-2">
         <h2 class="font-display text-2xl font-extrabold text-ink">
-          {productoDetalle.descriptionTitle}
+          {servicioDetalle.descriptionTitle}
         </h2>
         <span class="mt-4 block h-1 w-16 rounded-full bg-secondary"></span>
         <div
@@ -101,18 +101,18 @@ const relacionados = (await getCollection("productos"))
           class="sticky top-28 rounded-2xl bg-gradient-to-br from-primary via-primary to-black p-8"
         >
           <h2 class="font-display text-xl font-bold text-white">
-            {productoDetalle.ctaTitle}
+            {servicioDetalle.ctaTitle}
           </h2>
           <p class="mt-3 text-sm leading-relaxed text-white/80">
-            {productoDetalle.ctaText}
+            {servicioDetalle.ctaText}
           </p>
           <Button
             variant="secondary"
             size="md"
-            href={productoDetalle.ctaHref}
+            href={servicioDetalle.ctaHref}
             className="mt-6 w-full"
           >
-            {productoDetalle.ctaButton}
+            {servicioDetalle.ctaButton}
           </Button>
         </div>
       </aside>
@@ -123,25 +123,29 @@ const relacionados = (await getCollection("productos"))
     gallery && (
       <section class="bg-panel">
         <div class="container-x py-16 lg:py-20">
-          <Gallery name={gallery} title={productoDetalle.galleryTitle} />
+          <Gallery name={gallery} title={servicioDetalle.galleryTitle} />
         </div>
       </section>
     )
   }
 
   {
-    relacionados.length > 0 && (
+    otros.length > 0 && (
       <section class="bg-canvas">
         <div class="container-x py-16 lg:py-20">
           <h2 class="font-display text-2xl font-extrabold text-ink">
-            {productoDetalle.relatedTitle}
+            {servicioDetalle.otrosTitle}
           </h2>
           <span class="mt-4 block h-1 w-16 rounded-full bg-secondary" />
 
-          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relacionados.map((item, index) => (
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            {otros.map((item, index) => (
               <ScrollReveal client:visible delay={index * 0.1} className="h-full">
-                <ProductCard producto={item} cta={productosPage.cta} />
+                <ServiceCard
+                  servicio={item}
+                  cta={serviciosSection.cta}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
               </ScrollReveal>
             ))}
           </div>

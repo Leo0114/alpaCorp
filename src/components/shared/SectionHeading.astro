@@ -1,0 +1,62 @@
+---
+interface Props {
+  topTag?: string;
+  title: string;
+  text?: string;
+  align?: "left" | "center";
+  tone?: "default" | "inverse";
+  class?: string;
+}
+
+const {
+  topTag,
+  title,
+  text,
+  align = "left",
+  tone = "default",
+  class: className = "",
+} = Astro.props;
+
+const isInverse = tone === "inverse";
+---
+
+<div
+  class:list={[
+    "max-w-3xl",
+    align === "center" && "mx-auto text-center",
+    className,
+  ]}
+>
+  {
+    topTag && (
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary">
+        {topTag}
+      </p>
+    )
+  }
+  <h2
+    class:list={[
+      "font-display text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl",
+      isInverse ? "text-white" : "text-ink",
+    ]}
+  >
+    {title}
+  </h2>
+  {
+    text && (
+      <p
+        class:list={[
+          "mt-4 text-base leading-relaxed",
+          isInverse ? "text-white/80" : "text-muted",
+        ]}
+      >
+        {text}
+      </p>
+    )
+  }
+  <span
+    class:list={[
+      "mt-6 block h-1 w-16 rounded-full bg-secondary",
+      align === "center" && "mx-auto",
+    ]}></span>
+</div>
