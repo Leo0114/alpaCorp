@@ -1,12 +1,51 @@
 ---
-import { Button } from "@/components/ui/Button";
 import { FiMoon, FiSun } from "react-icons/fi";
 ---
 
-<Button variant="simple" data-theme-toggle aria-label="Toggle color theme">
-  <span class="shrink-0 text-lg flex items-center justify-center">
-    <FiMoon className="block dark:hidden" />
-    <FiSun className="hidden dark:block" />
+<button
+  data-theme-toggle
+  aria-label="Toggle color theme"
+  class="flex cursor-pointer items-center gap-2 px-4 py-2 rounded-full border border-white/25 bg-white/10 text-white text-xs font-semibold uppercase tracking-widest hover:bg-white/20 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+>
+  <span class="shrink-0 text-base flex items-center justify-center text-white">
+    <FiMoon className="block dark:hidden text-white" />
+    <FiSun className="hidden dark:block text-white" />
   </span>
-  <span data-theme-label>Dark</span>
-</Button>
+  <span
+    data-theme-label
+    class="text-white text-xs font-semibold uppercase tracking-widest"
+    >Dark</span
+  >
+</button>
+
+<script>
+  function setupThemeToggle() {
+    const toggles = document.querySelectorAll<HTMLButtonElement>(
+      "[data-theme-toggle]",
+    );
+    toggles.forEach((toggle) => {
+      const label = toggle.querySelector<HTMLElement>("[data-theme-label]");
+      const isDark = document.documentElement.classList.contains("dark");
+      if (label) label.textContent = isDark ? "Light" : "Dark";
+
+      // Evitar doble binding en el mismo elemento
+      if (toggle.getAttribute("data-processed") === "true") return;
+      toggle.setAttribute("data-processed", "true");
+
+      toggle.addEventListener("click", () => {
+        const nowDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", nowDark ? "dark" : "light");
+
+        // Actualizar todas las etiquetas en la página
+        document.querySelectorAll("[data-theme-toggle]").forEach((t) => {
+          const l = t.querySelector<HTMLElement>("[data-theme-label]");
+          if (l) l.textContent = nowDark ? "Light" : "Dark";
+        });
+      });
+    });
+  }
+
+  // Ejecutar en carga inicial y en cada transición de página
+  setupThemeToggle();
+  document.addEventListener("astro:page-load", setupThemeToggle);
+</script>
