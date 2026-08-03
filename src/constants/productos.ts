@@ -17,7 +17,7 @@ export const productosPage = {
 export const productoDetalle = {
   backLabel: "Volver a productos",
   descriptionTitle: "Descripción",
-  galleryTitle: "Clientes que confían en nosotros",
+  galleryTitle: "Galería",
   ctaTitle: "¿Te interesa este producto?",
   ctaText:
     "Solicita una cotización a la medida de tus dimensiones, cargas y volúmenes.",
