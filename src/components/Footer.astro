@@ -12,14 +12,19 @@ const productos = (await getCollection("productos")).sort(
 <footer class="bg-primary text-white">
   <div class="container-x grid gap-12 py-16 lg:grid-cols-4 lg:gap-8">
     <div class="lg:col-span-1">
-      <Image
-        src={site.logo}
-        alt={site.logoAlt}
-        widths={[160, 320]}
-        sizes="160px"
-        loading="lazy"
-        class="h-14 w-auto object-contain brightness-0 invert"
-      />
+      <a href="/" class="flex items-center gap-3">
+        <Image
+          src={site.logo}
+          alt={site.logoAlt}
+          widths={[160, 320]}
+          sizes="160px"
+          loading="lazy"
+          class="h-14 w-auto object-contain brightness-0 invert"
+        />
+        <span class="text-sm font-bold text-white leading-tight">
+          {site.tagline}
+        </span>
+      </a>
       <p class="mt-5 text-sm leading-relaxed text-white/70">{footer.about}</p>
     </div>
 
@@ -75,7 +80,10 @@ const productos = (await getCollection("productos")).sort(
       </h2>
       <ul class="mt-5 space-y-4 text-sm text-white/75">
         <li class="flex gap-3">
-          <FiMapPin className="mt-0.5 shrink-0 text-secondary" aria-hidden="true" />
+          <FiMapPin
+            className="mt-0.5 shrink-0 text-secondary"
+            aria-hidden="true"
+          />
           <a
             href={contact.addressHref}
             target="_blank"
@@ -86,7 +94,10 @@ const productos = (await getCollection("productos")).sort(
           </a>
         </li>
         <li class="flex gap-3">
-          <FiPhone className="mt-0.5 shrink-0 text-secondary" aria-hidden="true" />
+          <FiPhone
+            className="mt-0.5 shrink-0 text-secondary"
+            aria-hidden="true"
+          />
           <a
             href={contact.phoneHref}
             class="transition-colors duration-200 hover:text-secondary"
@@ -95,7 +106,10 @@ const productos = (await getCollection("productos")).sort(
           </a>
         </li>
         <li class="flex gap-3">
-          <FiMail className="mt-0.5 shrink-0 text-secondary" aria-hidden="true" />
+          <FiMail
+            className="mt-0.5 shrink-0 text-secondary"
+            aria-hidden="true"
+          />
           <a
             href={contact.emailHref}
             class="transition-colors duration-200 hover:text-secondary"
@@ -109,7 +123,13 @@ const productos = (await getCollection("productos")).sort(
 
   <div class="border-t border-white/10">
     <p class="container-x py-6 text-center text-xs text-white/60">
-      {footer.copyright}
+      Made by <a
+        href="https://www.optimmkt.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-white/80 hover:text-secondary transition-colors duration-200"
+        >Optim</a
+      > | {footer.copyright}
     </p>
   </div>
 </footer>
