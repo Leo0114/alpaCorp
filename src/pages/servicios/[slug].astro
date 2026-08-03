@@ -119,7 +119,7 @@ const otros = (await getCollection("servicios"))
     </div>
   </section>
 
-  {
+  <!-- {
     gallery && (
       <section class="bg-panel">
         <div class="container-x py-16 lg:py-20">
@@ -127,7 +127,7 @@ const otros = (await getCollection("servicios"))
         </div>
       </section>
     )
-  }
+  } -->
 
   {
     otros.length > 0 && (
@@ -140,7 +140,11 @@ const otros = (await getCollection("servicios"))
 
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {otros.map((item, index) => (
-              <ScrollReveal client:visible delay={index * 0.1} className="h-full">
+              <ScrollReveal
+                client:visible
+                delay={index * 0.1}
+                className="h-full"
+              >
                 <ServiceCard
                   servicio={item}
                   cta={serviciosSection.cta}

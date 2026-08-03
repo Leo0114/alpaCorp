@@ -4,7 +4,6 @@ import { ClientRouter } from "astro:transitions";
 import { SEO } from "astro-seo";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
-import ScrollTop from "@/components/shared/ScrollTop.astro";
 import WhatsApp from "@/components/shared/WhatsApp.astro";
 import { Toaster } from "@/components/shared/Toaster";
 import { site } from "@/constants/site";
@@ -75,7 +74,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
     </main>
     <Footer />
 
-    <ScrollTop />
     <WhatsApp />
     <Toaster client:idle />
 
