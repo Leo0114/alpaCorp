@@ -97,7 +97,7 @@ export const heroSlides = [
     subtitle:
       "Empresas como Whirlpool confían en ALPA desde hace más de 30 años. No somos un proveedor más: somos parte de su cadena productiva.",
     cta: "Conoce nuestros clientes",
-    ctaHref: "/#clientes",
+    ctaHref: "/#marcas-ancla",
     image,
     imageAlt: "Almacén de tarimas de madera ALPA",
   },
@@ -159,15 +159,14 @@ export const marcasAncla = {
   cta: "Ver todos nuestros clientes",
   ctaHref: "/#clientes",
   brands: [
-    { name: "Whirlpool", detail: "+30 años de relación continua" },
-    { name: "LG Electronics", detail: "Empaques para distribución nacional" },
-    { name: "Vitro", detail: "Soluciones de protección de vidrio" },
-    { name: "Merkalang", detail: "Logística de embalaje a la medida" },
-    { name: "Norteamérica", detail: "Distribución en la región" },
-    { name: "Thermotek", detail: "Empaques para HVAC" },
-    { name: "Formes", detail: "Embalaje industrial especializado" },
-    { name: "Hebel", detail: "Tarimas para materiales de construcción" },
-    { name: "Danfoss", detail: "Componentes industriales protegidos" },
+    { name: "Whirlpool", logoKey: "whirlpool", detail: "+30 años de relación continua" },
+    { name: "LG Electronics", logoKey: "lg", detail: "Empaques para distribución nacional" },
+    { name: "Vitro", logoKey: "vitro", detail: "Soluciones de protección de vidrio" },
+    { name: "Mekra Lang", logoKey: "mekraLang", detail: "Logística de embalaje a la medida" },
+    { name: "Thermotek", logoKey: "thermotek", detail: "Empaques para HVAC" },
+    { name: "Foremes", logoKey: "foremesG", detail: "Embalaje industrial especializado" },
+    { name: "Hebel", logoKey: "hebel", detail: "Tarimas para materiales de construcción" },
+    { name: "Danfoss", logoKey: "danfoss", detail: "Componentes industriales protegidos" },
   ],
 } as const;
 

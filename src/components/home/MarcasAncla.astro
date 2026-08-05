@@ -1,7 +1,6 @@
 ---
 import SectionHeading from "@/components/shared/SectionHeading.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { Button } from "@/components/ui/Button";
 import { marcasAncla } from "@/constants/home";
 
 // Carga dinámica de logos existentes en /marcas
@@ -10,11 +9,24 @@ const modules = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
+// Mapa: nombre de archivo (sin extensión) → src de la imagen
 const logoMap: Record<string, string> = {};
 for (const [path, mod] of Object.entries(modules)) {
   const filename = path.split("/").pop()?.replace(/\.\w+$/, "") ?? "";
   logoMap[filename] = mod.default.src;
 }
+
+// Cada marca en el array puede tener una clave "logoKey" que apunte
+// al nombre del archivo; si no se especifica, se busca por el nombre
+// de la marca en minúsculas sin espacios.
+const brandsWithLogos = marcasAncla.brands.map((brand) => {
+  // Intenta coincidir con el archivo de logo (key opcional o nombre normalizado)
+  const key =
+    (brand as { logoKey?: string }).logoKey ??
+    brand.name.toLowerCase().replace(/\s+/g, "");
+  const logoSrc = logoMap[key] ?? null;
+  return { ...brand, logoSrc };
+});
 ---
 
 <section id="marcas-ancla" class="bg-panel">
@@ -39,9 +51,9 @@ for (const [path, mod] of Object.entries(modules)) {
     </ScrollReveal>
 
     <!-- Grid de marcas -->
-    <div class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 ">
       {
-        marcasAncla.brands.map((brand, index) => (
+        brandsWithLogos.map((brand, index) => (
           <ScrollReveal
             client:visible
             direction="up"
@@ -49,30 +61,30 @@ for (const [path, mod] of Object.entries(modules)) {
             className="h-full"
           >
             <div class="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-canvas px-5 py-6 text-center shadow-xs transition-all duration-300 hover:border-secondary/40 hover:shadow-md hover:-translate-y-1">
-              <!-- Inicial / logo placeholder -->
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-secondary/10 group-hover:text-secondary">
-                <span class="text-xl font-extrabold font-display select-none">
-                  {brand.name.charAt(0)}
-                </span>
+              <!-- Logo de la marca o inicial como fallback -->
+              <div class="flex h-16 w-full max-w-[120px] items-center justify-center">
+                {brand.logoSrc ? (
+                  <img
+                    src={brand.logoSrc}
+                    alt={`Logo de ${brand.name}`}
+                    class="h-full w-full object-contain mix-blend-multiply dark:mix-blend-normal dark:brightness-90 dark:invert"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-secondary/10 group-hover:text-secondary">
+                    <span class="text-xl font-extrabold font-display select-none">
+                      {brand.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
               </div>
 
-              <div>
-                <p class="font-display text-sm font-bold text-ink">{brand.name}</p>
-                <p class="mt-1 text-xs leading-snug text-muted">{brand.detail}</p>
-              </div>
+              <p class="font-display text-sm font-bold text-ink">{brand.name}</p>
             </div>
           </ScrollReveal>
         ))
       }
     </div>
-
-    <!-- CTA -->
-    <ScrollReveal client:visible delay={0.2}>
-      <div class="mt-12 flex justify-center">
-        <Button variant="secondary" size="lg" href={marcasAncla.ctaHref}>
-          {marcasAncla.cta}
-        </Button>
-      </div>
-    </ScrollReveal>
   </div>
 </section>
