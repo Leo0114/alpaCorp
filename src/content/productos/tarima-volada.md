@@ -2,7 +2,7 @@
 name: Tarima volada
 Image: ../../assets/images/tarimas/volada.webp
 description: Tarima con barrotes más centrados para incrementar la capacidad de carga.
-gallery: marcas
+gallery: gal
 order: 3
 ---
 

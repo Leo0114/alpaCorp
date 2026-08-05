@@ -2,7 +2,7 @@
 name: Tarima Estándar
 Image: ../../assets/images/tarimas/Estandar.webp
 description: Tarima resistente y estándar para transporte y almacenamiento de mercancías.
-gallery: marcas
+gallery: gal
 order: 1
 ---
 
