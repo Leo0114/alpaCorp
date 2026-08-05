@@ -1,6 +1,6 @@
 ---
 name: Cajas de Madera para transportación
-Image: ../../assets/images/tarimas/proteccion2.avif
+Image: ../../assets/images/tarimas/prote.avif
 description: Cajas de madera cerradas a la medida para resguardar mercancías valiosas o delicadas en traslados de larga distancia.
 gallery: gal
 order: 8
