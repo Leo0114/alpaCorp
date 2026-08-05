@@ -1,6 +1,6 @@
 ---
 name: Tarima con resaque
-Image: ../../assets/images/4786.avif
+Image: ../../assets/images/tarimas/resaque.webp
 description: Tarima con acceso por 4 lados para agilizar la maniobra en almacén y carga.
 gallery: marcas
 order: 2

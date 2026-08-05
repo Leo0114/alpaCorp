@@ -33,7 +33,7 @@ const textVariants = {
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, delay, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.75, delay, ease: [0.25, 0.1, 0.25, 1] as const },
   }),
   exit: { opacity: 0, y: -20, transition: { duration: 0.4 } },
 };
@@ -43,7 +43,7 @@ const tagVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
   },
   exit: { opacity: 0, x: -16, transition: { duration: 0.3 } },
 };
@@ -105,11 +105,17 @@ function LateralIndicators({
 // ---------------------------------------------------------------------------
 // Sub-component: slide content (animated on key change)
 // ---------------------------------------------------------------------------
-function SlideContent({ slide, key: _key }: { slide: HeroSlide; key: string }) {
+function SlideContent({
+  slide,
+  slideKey,
+}: {
+  slide: HeroSlide;
+  slideKey: string;
+}) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={_key}
+        key={slideKey}
         className="relative z-10 max-w-2xl"
         initial="hidden"
         animate="visible"
@@ -253,7 +259,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
 
             {/* Overlay gradient */}
             <div
-              className="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40"
+              className="absolute inset-0 bg-linear-to-r from-primary via-primary/85 to-primary/40"
               aria-hidden="true"
             />
 
@@ -269,7 +275,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
 
             {/* Content */}
             <div className="container-x relative flex min-h-[90vh] items-center py-24">
-              <SlideContent slide={slide} key={`slide-${activeIndex}`} />
+              <SlideContent slide={slide} slideKey={`slide-${activeIndex}`} />
             </div>
           </SwiperSlide>
         ))}

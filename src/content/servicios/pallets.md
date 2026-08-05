@@ -1,6 +1,6 @@
 ---
 name: Pallets
-Image: ../../assets/images/4786.avif
+Image: ../../assets/images/pallets11.avif
 description: Sistemas de administración de inventario.
 gallery: marcas
 order: 1

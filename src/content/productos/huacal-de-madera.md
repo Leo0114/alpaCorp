@@ -1,6 +1,6 @@
 ---
 name: Huacal de madera
-Image: ../../assets/images/4786.avif
+Image: ../../assets/images/tarimas/huacal.webp
 description: Caja tradicional de madera con asas, ideal para almacenar y transportar diversos productos.
 gallery: marcas
 order: 5

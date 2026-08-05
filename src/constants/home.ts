@@ -1,6 +1,15 @@
 import logo from "@/assets/images/logo.png";
 import image from "@/assets/images/4786.avif";
 
+// hero
+import one from "@/assets/images/one.avif";
+import two from "@/assets/images/two.avif";
+import three from "@/assets/images/three.avif";
+// Nuestra empresa
+import nuestraEmpresaImage from "@/assets/images/img04.avif";
+// CTA
+import ctaImage from "@/assets/images/imgw43-scaled.avif";
+
 export const heroIntro = {
   cards: [
     {
@@ -41,7 +50,7 @@ export const nuestraEmpres = {
   p1: "Desde su establecimiento en 1993 por el Ing. Alfonso Antillón, nuestra empresa se ha comprometido con el suministro de empaques industriales de madera para satisfacer las necesidades de la industria en Monterrey.",
   p2: "Nos especializamos en el manejo de maderas de pino, tanto nacionales como importadas, para la fabricación de productos que responden a las demandas específicas de nuestros clientes. Nuestra misión es proporcionar soluciones que optimicen el uso de sus recursos y aseguren la protección efectiva de sus productos, todo respaldado por un servicio de calidad impecable.",
   p3: "Con más de 30 años de experiencia en el mercado, hemos perfeccionado la producción de empaques industriales de madera de alta calidad. Continuamos avanzando y aceptando nuevos desafíos para seguir creciendo y superando las expectativas de nuestros clientes.",
-  image,
+  image: nuestraEmpresaImage,
   imageAlt: "Fabricación de tarimas de madera en ALPA",
   logo,
   logoAlt: "Logotipo de Empaques Industriales ALPA",
@@ -61,7 +70,7 @@ export const ctaComponent = {
   p1: "Nuestros procesos productivos y administrativos se flexibilizan a la necesidad de nuestros clientes, donde proveemos desde un simple pallet hasta un sistema de administración de inventarios con el cual el cliente no se tiene que preocupar por niveles de inventario o por caer en stockout.",
   bgButton: "Contáctanos",
   href: "/contacto",
-  image,
+  image: ctaImage,
   imageAlt: "Almacén de tarimas de madera",
 };
 
@@ -88,17 +97,18 @@ export const heroSlides = [
       "Más de 30 años diseñando soluciones de embalaje industrial para empresas que no pueden permitirse fallar.",
     cta: "Solicita una cotización",
     ctaHref: "/contacto",
-    image,
+    image: one,
     imageAlt: "Tarimas de madera de Empaques Industriales ALPA",
   },
   {
     topTag: "RELACIONES A LARGO PLAZO",
-    title: "Llevamos décadas protegiendo las operaciones de las mejores marcas.",
+    title:
+      "Llevamos décadas protegiendo las operaciones de las mejores marcas.",
     subtitle:
       "Empresas como Whirlpool confían en ALPA desde hace más de 30 años. No somos un proveedor más: somos parte de su cadena productiva.",
     cta: "Conoce nuestros clientes",
     ctaHref: "/#marcas-ancla",
-    image,
+    image: two,
     imageAlt: "Almacén de tarimas de madera ALPA",
   },
   {
@@ -108,7 +118,7 @@ export const heroSlides = [
       "No fabricamos tarimas. Construimos relaciones. Nos integramos a tu operación, entendemos tus volúmenes y crecemos contigo.",
     cta: "Saber más de nosotros",
     ctaHref: "/quienes-somos",
-    image,
+    image: three,
     imageAlt: "Equipo de trabajo de Empaques Industriales ALPA",
   },
 ] as const;
@@ -159,14 +169,42 @@ export const marcasAncla = {
   cta: "Ver todos nuestros clientes",
   ctaHref: "/#clientes",
   brands: [
-    { name: "Whirlpool", logoKey: "whirlpool", detail: "+30 años de relación continua" },
-    { name: "LG Electronics", logoKey: "lg", detail: "Empaques para distribución nacional" },
-    { name: "Vitro", logoKey: "vitro", detail: "Soluciones de protección de vidrio" },
-    { name: "Mekra Lang", logoKey: "mekraLang", detail: "Logística de embalaje a la medida" },
+    {
+      name: "Whirlpool",
+      logoKey: "whirlpool",
+      detail: "+30 años de relación continua",
+    },
+    {
+      name: "LG Electronics",
+      logoKey: "lg",
+      detail: "Empaques para distribución nacional",
+    },
+    {
+      name: "Vitro",
+      logoKey: "vitro",
+      detail: "Soluciones de protección de vidrio",
+    },
+    {
+      name: "Mekra Lang",
+      logoKey: "mekraLang",
+      detail: "Logística de embalaje a la medida",
+    },
     { name: "Thermotek", logoKey: "thermotek", detail: "Empaques para HVAC" },
-    { name: "Foremes", logoKey: "foremesG", detail: "Embalaje industrial especializado" },
-    { name: "Hebel", logoKey: "hebel", detail: "Tarimas para materiales de construcción" },
-    { name: "Danfoss", logoKey: "danfoss", detail: "Componentes industriales protegidos" },
+    {
+      name: "Foremes",
+      logoKey: "foremesG",
+      detail: "Embalaje industrial especializado",
+    },
+    {
+      name: "Hebel",
+      logoKey: "hebel",
+      detail: "Tarimas para materiales de construcción",
+    },
+    {
+      name: "Danfoss",
+      logoKey: "danfoss",
+      detail: "Componentes industriales protegidos",
+    },
   ],
 } as const;
 
@@ -206,7 +244,8 @@ export const problemasIndustrias = {
     {
       icon: "export",
       industry: "Exportación",
-      problem: "Aduanas rechaza el empaque de madera por no tener certificación",
+      problem:
+        "Aduanas rechaza el empaque de madera por no tener certificación",
       solution:
         "Tratamiento térmico propio (HT) conforme a NOM-144-SEMARNAT-2017 / NIMF-15. Certificamos y sellamos tu empaque.",
       badge: "Tratamiento HT",

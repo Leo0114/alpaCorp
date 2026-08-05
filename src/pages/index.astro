@@ -8,36 +8,32 @@ import ProblemasIndustrias from "@/components/home/ProblemasIndustrias.astro";
 import Productos from "@/components/home/Productos.astro";
 import Cta from "@/components/home/Cta.astro";
 import Servicios from "@/components/home/Servicios.astro";
-// import Clientes from "@/components/home/Clientes.astro";
 import { site } from "@/constants/site";
 import { heroSlides } from "@/constants/home";
 ---
 
 <Layout description={site.description}>
-  {/* 1 · Impacto: hero slider con propuesta de valor */}
+  {/* Impacto */}
   <HeroSlider client:load slides={heroSlides} />
 
-  {/* 2 · Credenciales rápidas: 30+ años, clientes, certificaciones */}
+  {/* Credenciales rápidas*/}
   <IndicadoresClave />
 
-  {/* 3 · Quiénes somos: historia y misión */}
+  {/* Quiénes somos*/}
   <NuestraEmpresa />
 
-  {/* 4 · Prueba social: marcas grandes con las que llevamos décadas */}
+  {/* Prueba social*/}
   <MarcasAncla />
 
-  {/* 5 · Relevancia: industrias y problemas que resolvemos */}
+  {/* Relevancia*/}
   <ProblemasIndustrias />
 
-  {/* 6 · Productos: catálogo a la medida */}
+  {/* Productos */}
   <Productos />
 
-  {/* 7 · CTA: servicios + llamada a acción */}
+  {/* CTA */}
   <Cta />
 
-  {/* 8 · Servicios: detalle de cada servicio */}
+  {/* Servicios */}
   <Servicios />
-
-  {/* 9 · Clientes: carousel de logos */}
-  <!-- <Clientes /> -->
 </Layout>

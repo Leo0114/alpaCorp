@@ -1,6 +1,6 @@
 ---
 name: Tarima Estándar
-Image: ../../assets/images/4786.avif
+Image: ../../assets/images/tarimas/Estandar.webp
 description: Tarima resistente y estándar para transporte y almacenamiento de mercancías.
 gallery: marcas
 order: 1
