@@ -1,19 +1,43 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Intro from "@/components/home/Intro.astro";
+import HeroSlider from "@/components/home/HeroSlider";
+import IndicadoresClave from "@/components/home/IndicadoresClave.astro";
 import NuestraEmpresa from "@/components/home/NuestraEmpresa.astro";
+import MarcasAncla from "@/components/home/MarcasAncla.astro";
+import ProblemasIndustrias from "@/components/home/ProblemasIndustrias.astro";
 import Productos from "@/components/home/Productos.astro";
 import Cta from "@/components/home/Cta.astro";
 import Servicios from "@/components/home/Servicios.astro";
-import Clientes from "@/components/home/Clientes.astro";
+// import Clientes from "@/components/home/Clientes.astro";
 import { site } from "@/constants/site";
+import { heroSlides } from "@/constants/home";
 ---
 
 <Layout description={site.description}>
-  <Intro />
+  {/* 1 · Impacto: hero slider con propuesta de valor */}
+  <HeroSlider client:load slides={heroSlides} />
+
+  {/* 2 · Credenciales rápidas: 30+ años, clientes, certificaciones */}
+  <IndicadoresClave />
+
+  {/* 3 · Quiénes somos: historia y misión */}
   <NuestraEmpresa />
+
+  {/* 4 · Prueba social: marcas grandes con las que llevamos décadas */}
+  <MarcasAncla />
+
+  {/* 5 · Relevancia: industrias y problemas que resolvemos */}
+  <ProblemasIndustrias />
+
+  {/* 6 · Productos: catálogo a la medida */}
   <Productos />
+
+  {/* 7 · CTA: servicios + llamada a acción */}
   <Cta />
+
+  {/* 8 · Servicios: detalle de cada servicio */}
   <Servicios />
-  <Clientes />
+
+  {/* 9 · Clientes: carousel de logos */}
+  <!-- <Clientes /> -->
 </Layout>

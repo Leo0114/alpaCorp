@@ -1,0 +1,78 @@
+---
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { Button } from "@/components/ui/Button";
+import { marcasAncla } from "@/constants/home";
+
+// Carga dinámica de logos existentes en /marcas
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/marcas/*.{png,jpg,jpeg,webp,avif,svg}",
+  { eager: true },
+);
+
+const logoMap: Record<string, string> = {};
+for (const [path, mod] of Object.entries(modules)) {
+  const filename = path.split("/").pop()?.replace(/\.\w+$/, "") ?? "";
+  logoMap[filename] = mod.default.src;
+}
+---
+
+<section id="marcas-ancla" class="bg-panel">
+  <div class="container-x py-16 lg:py-24">
+    <ScrollReveal client:visible>
+      <SectionHeading
+        topTag={marcasAncla.topTag}
+        title={marcasAncla.title}
+        text={marcasAncla.subtitle}
+        align="center"
+      />
+    </ScrollReveal>
+
+    <!-- Tagline de confianza -->
+    <ScrollReveal client:visible delay={0.1}>
+      <div class="mx-auto mt-6 max-w-xl text-center">
+        <p class="text-sm leading-relaxed text-muted">
+          Más de <strong class="text-secondary font-bold">30 años</strong> siendo parte
+          de la cadena productiva de empresas que no pueden detenerse.
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <!-- Grid de marcas -->
+    <div class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {
+        marcasAncla.brands.map((brand, index) => (
+          <ScrollReveal
+            client:visible
+            direction="up"
+            delay={index * 0.07}
+            className="h-full"
+          >
+            <div class="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-canvas px-5 py-6 text-center shadow-xs transition-all duration-300 hover:border-secondary/40 hover:shadow-md hover:-translate-y-1">
+              <!-- Inicial / logo placeholder -->
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-secondary/10 group-hover:text-secondary">
+                <span class="text-xl font-extrabold font-display select-none">
+                  {brand.name.charAt(0)}
+                </span>
+              </div>
+
+              <div>
+                <p class="font-display text-sm font-bold text-ink">{brand.name}</p>
+                <p class="mt-1 text-xs leading-snug text-muted">{brand.detail}</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+
+    <!-- CTA -->
+    <ScrollReveal client:visible delay={0.2}>
+      <div class="mt-12 flex justify-center">
+        <Button variant="secondary" size="lg" href={marcasAncla.ctaHref}>
+          {marcasAncla.cta}
+        </Button>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>

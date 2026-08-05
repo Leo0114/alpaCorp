@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { banner, cta, valores } from "@/constants/quienes-somos";
 import { nuestraEmpres } from "@/constants/home";
+import Clientes from "@/components/home/Clientes.astro";
 ---
 
 <Layout title={banner.title} description={nuestraEmpres.p1}>
@@ -30,13 +31,19 @@ import { nuestraEmpres } from "@/constants/home";
       <div class="mt-12 grid gap-6 sm:grid-cols-2">
         {
           valores.items.map((item, index) => (
-            <ScrollReveal client:visible delay={(index % 2) * 0.1} className="h-full">
+            <ScrollReveal
+              client:visible
+              delay={(index % 2) * 0.1}
+              className="h-full"
+            >
               <article class="h-full rounded-2xl border border-line bg-canvas p-7 transition-colors duration-300 hover:border-secondary">
                 <span class="block h-1 w-10 rounded-full bg-secondary" />
                 <h3 class="mt-5 font-display text-lg font-bold text-ink">
                   {item.title}
                 </h3>
-                <p class="mt-3 text-sm leading-relaxed text-muted">{item.text}</p>
+                <p class="mt-3 text-sm leading-relaxed text-muted">
+                  {item.text}
+                </p>
               </article>
             </ScrollReveal>
           ))
@@ -44,6 +51,7 @@ import { nuestraEmpres } from "@/constants/home";
       </div>
     </div>
   </section>
+  <Clientes />
 
   <section class="bg-gradient-to-br from-primary via-primary to-black">
     <div class="container-x py-16 text-center lg:py-20">

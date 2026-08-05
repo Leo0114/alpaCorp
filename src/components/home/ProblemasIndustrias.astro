@@ -1,0 +1,97 @@
+---
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import { problemasIndustrias } from "@/constants/home";
+---
+
+<section id="industrias" class="bg-canvas" aria-label="Industrias que atendemos">
+  <div class="container-x py-16 lg:py-24">
+    <ScrollReveal client:visible>
+      <SectionHeading
+        topTag={problemasIndustrias.topTag}
+        title={problemasIndustrias.title}
+        text={problemasIndustrias.subtitle}
+        align="center"
+      />
+    </ScrollReveal>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+      {
+        problemasIndustrias.industries.map((item, index) => (
+          <ScrollReveal
+            client:visible
+            direction="up"
+            delay={index * 0.1}
+            className="h-full"
+          >
+            <article class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel shadow-xs transition-all duration-300 hover:border-secondary/40 hover:shadow-lg hover:-translate-y-1">
+              {/* Header coloreado */}
+              <div class="flex items-center gap-3 bg-primary px-5 py-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary/20">
+                  {item.icon === "factory" && (
+                    <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <path d="M9 22V12h6v10" />
+                    </svg>
+                  )}
+                  {item.icon === "appliance" && (
+                    <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
+                      <polyline points="17 2 12 7 7 2" />
+                    </svg>
+                  )}
+                  {item.icon === "building" && (
+                    <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 21h18" />
+                      <path d="M5 21V7l8-4v18" />
+                      <path d="M19 21V11l-6-4" />
+                      <path d="M9 9h.01M9 12h.01M9 15h.01M9 18h.01" />
+                    </svg>
+                  )}
+                  {item.icon === "export" && (
+                    <svg class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="17 8 12 3 7 8" />
+                      <line x1="12" y1="3" x2="12" y2="15" />
+                    </svg>
+                  )}
+                </div>
+
+                <h3 class="font-display text-sm font-bold text-white">
+                  {item.industry}
+                </h3>
+              </div>
+
+              {/* Body */}
+              <div class="flex flex-1 flex-col gap-4 p-5">
+                {/* Problema */}
+                <div>
+                  <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-secondary">
+                    El reto
+                  </p>
+                  <p class="text-sm font-medium text-ink">{item.problem}</p>
+                </div>
+
+                {/* Solución */}
+                <div class="flex-1">
+                  <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-muted">
+                    Cómo lo resolvemos
+                  </p>
+                  <p class="text-sm leading-relaxed text-muted">
+                    {item.solution}
+                  </p>
+                </div>
+
+                {/* Badge de servicio */}
+                <span class="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-secondary/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-secondary">
+                  <span class="h-1.5 w-1.5 rounded-full bg-secondary" />
+                  {item.badge}
+                </span>
+              </div>
+            </article>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>
