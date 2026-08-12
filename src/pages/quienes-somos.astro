@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { banner, cta, valores } from "@/constants/quienes-somos";
 import { nuestraEmpres } from "@/constants/home";
 import Clientes from "@/components/home/Clientes.astro";
+import Conducta from "@/components/quienes/Conducta.astro";
 ---
 
 <Layout title={banner.title} description={nuestraEmpres.p1}>
@@ -19,7 +20,7 @@ import Clientes from "@/components/home/Clientes.astro";
   />
 
   <NuestraEmpresa showCta={false} id="nuestra-empresa" />
-
+  <Conducta />
   <section class="bg-panel">
     <div class="container-x py-16 lg:py-24">
       <SectionHeading

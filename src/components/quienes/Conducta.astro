@@ -1,0 +1,98 @@
+---
+import SectionHeading from "@/components/shared/SectionHeading.astro";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+---
+
+<section id="responsabilidad-social" class="bg-canvas" aria-label="Responsabilidad Social y Código de Conducta">
+  <div class="container-x py-16 lg:py-24">
+
+    <!-- Heading -->
+    <ScrollReveal client:visible>
+      <SectionHeading
+        topTag="RESPONSABILIDAD SOCIAL"
+        title="Responsabilidad Social y Código de Conducta"
+        text="Comprometidos con hacer negocios de manera responsable"
+        align="center"
+      />
+    </ScrollReveal>
+
+    <!-- Two-column layout -->
+    <div class="mt-14 grid items-start gap-12 lg:grid-cols-2">
+
+      <!-- Left: Descriptive paragraphs -->
+      <ScrollReveal client:visible direction="right">
+        <div class="space-y-5 text-base leading-relaxed text-muted">
+          <p>
+            En ALPA estamos comprometidos con una operación responsable, ética y
+            sostenible. Contamos con una certificación en Responsabilidad Social
+            que avala nuestro compromiso con las buenas prácticas empresariales,
+            el respeto a nuestros colaboradores, el cuidado del medio ambiente y
+            nuestra responsabilidad con la comunidad.
+          </p>
+          <p>
+            Asimismo, contamos con un <strong class="text-ink font-semibold">Código de Conducta certificado</strong>, que
+            establece los principios y estándares que deben regir nuestras
+            relaciones con colaboradores, clientes, proveedores y demás grupos
+            de interés.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <!-- Right: Principles list -->
+      <ScrollReveal client:visible direction="left" delay={0.1}>
+        <div>
+          <p class="mb-5 text-xs font-semibold uppercase tracking-[0.35em] text-secondary">
+            Nuestro compromiso se basa en principios de
+          </p>
+          <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            {[
+              "Ética e integridad empresarial",
+              "Respeto a los derechos laborales y humanos",
+              "Responsabilidad social",
+              "Cuidado y protección del medio ambiente",
+              "Transparencia en nuestras relaciones comerciales",
+              "Cumplimiento de las leyes y normativas aplicables",
+              "Relaciones responsables con clientes y proveedores",
+            ].map((principle) => (
+              <li class="group flex items-start gap-3 rounded-xl border border-line bg-panel p-4 transition-all duration-300 hover:border-secondary/40 hover:-translate-y-0.5 hover:shadow-md">
+                {/* Check icon */}
+                <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-secondary transition-colors group-hover:bg-secondary group-hover:text-white">
+                  <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span class="text-sm font-medium leading-snug text-ink">{principle}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </ScrollReveal>
+    </div>
+
+    <!-- Bottom paragraph + Download CTA -->
+    <ScrollReveal client:visible delay={0.2}>
+      <div class="mt-14 rounded-2xl border border-line bg-primary p-8 text-center sm:p-10 lg:p-12">
+        <p class="mx-auto max-w-3xl text-base leading-relaxed text-white/80">
+          Estas certificaciones representan más que un reconocimiento: son parte
+          de nuestra manera de hacer negocios y de nuestro compromiso de generar
+          <strong class="text-white font-semibold">confianza y relaciones comerciales de largo plazo</strong>.
+        </p>
+
+        <a
+          href="/Codigo-de-Conducta-ALPA.pdf"
+          download
+          class="mt-8 inline-flex items-center gap-3 rounded-full bg-secondary px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white hover:text-primary hover:-translate-y-0.5"
+        >
+          {/* Download icon */}
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Descargar Código de Conducta
+        </a>
+      </div>
+    </ScrollReveal>
+
+  </div>
+</section>
