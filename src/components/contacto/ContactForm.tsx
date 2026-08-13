@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { actions } from "astro:actions";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -38,13 +39,9 @@ export function ContactForm() {
 
   const onSubmit = async (values: ContactValues) => {
     try {
-      const response = await fetch("/api/contacto", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
+      const { error } = await actions.send(values);
 
-      if (!response.ok) throw new Error("request-failed");
+      if (error) throw new Error(error.message);
 
       toast.success(contactForm.successTitle, {
         description: contactForm.successText,
@@ -56,6 +53,7 @@ export function ContactForm() {
       });
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
