@@ -20,12 +20,12 @@ const isActive = (href: string) =>
 
 <header class="sticky top-0 z-40 w-full border-b border-white/10 bg-primary">
   <nav
-    class="container-x flex h-20 items-center justify-between gap-6"
+    class="container-x relative flex h-20 items-center justify-between gap-6"
     aria-label={i18n.nav.home}
   >
     <a
       href={homeHref}
-      class="flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary lg:static lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:shrink-0 lg:justify-start lg:gap-3"
     >
       <Image
         src={site.logo}
@@ -35,7 +35,7 @@ const isActive = (href: string) =>
         loading="eager"
         class="h-11 w-auto object-contain brightness-0 invert"
       />
-      <span class="text-sm font-bold text-white leading-tight hidden sm:inline-block">
+      <span class="hidden text-sm font-bold leading-tight text-white lg:inline-block">
         {i18n.site.tagline}
       </span>
       <span class="sr-only">{i18n.site.name}</span>
@@ -62,8 +62,10 @@ const isActive = (href: string) =>
       }
     </ul>
 
-    <div class="flex items-center gap-3">
-      <LangToggle label={i18n.nav.language} />
+    <div class="ml-auto flex items-center gap-3 lg:ml-0">
+      <div class="hidden lg:block">
+        <LangToggle label={i18n.nav.language} />
+      </div>
 
       <div class="hidden lg:block">
         <ThemeToggle />
@@ -117,8 +119,12 @@ const isActive = (href: string) =>
           </li>
         ))
       }
-      <li class="pt-2 flex items-center justify-between px-3">
-        <span class="text-xs uppercase text-white/70 font-semibold">{i18n.nav.theme}</span>
+      <li class="mt-2 flex items-center justify-between border-t border-white/10 px-3 pt-3">
+        <span class="text-xs font-semibold uppercase tracking-widest text-white/70">{i18n.nav.language}</span>
+        <LangToggle label={i18n.nav.language} />
+      </li>
+      <li class="flex items-center justify-between px-3 py-2">
+        <span class="text-xs font-semibold uppercase tracking-widest text-white/70">{i18n.nav.theme}</span>
         <ThemeToggle />
       </li>
     </ul>
