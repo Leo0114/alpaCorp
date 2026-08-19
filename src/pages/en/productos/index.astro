@@ -3,21 +3,21 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Banner from "@/components/shared/Banner.astro";
 import SectionHeading from "@/components/shared/SectionHeading.astro";
-import ServiceCard from "@/components/servicios/ServiceCard.astro";
+import ProductCard from "@/components/productos/ProductCard.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { getI18N, getLang } from "@/i18n/i18n";
 import heroImage from "@/assets/images/4786.avif";
 
-const lang = getLang(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
-const data = i18n.servicios;
+const data = i18n.productos;
 
-const servicios = (
-  await getCollection("servicios", (item) => item.id.startsWith(`${lang}/`))
+const productos = (
+  await getCollection("productos", (item) => item.id.startsWith(`${lang}/`))
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Layout title={i18n.seo.servicesTitle} description={i18n.seo.servicesDescription}>
+<Layout title={i18n.seo.productsTitle} description={i18n.seo.productsDescription}>
   <Banner
     title={data.banner.title}
     subtitle={data.banner.subtitle}
@@ -28,17 +28,21 @@ const servicios = (
   <section class="bg-canvas">
     <div class="container-x py-16 lg:py-24">
       <SectionHeading
-        topTag={i18n.home.serviciosSection.topTag}
-        title={i18n.home.serviciosSection.title}
-        text={i18n.home.ctaComponent.p1}
+        topTag={data.page.topTag}
+        title={data.page.title}
+        text={data.page.text}
         align="center"
       />
 
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
-          servicios.map((servicio, index) => (
-            <ScrollReveal client:visible delay={index * 0.1} className="h-full">
-              <ServiceCard servicio={servicio} cta={i18n.home.serviciosSection.cta} />
+          productos.map((producto, index) => (
+            <ScrollReveal client:visible delay={(index % 3) * 0.1} className="h-full">
+              <ProductCard
+                producto={producto}
+                cta={data.page.cta}
+                loading={index < 3 ? "eager" : "lazy"}
+              />
             </ScrollReveal>
           ))
         }

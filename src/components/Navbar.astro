@@ -1,34 +1,44 @@
 ---
 import { Image } from "astro:assets";
 import ThemeToggle from "@/components/shared/ThemeToggle.astro";
-import { navLinks, site } from "@/constants/site";
+import LangToggle from "@/components/shared/LangToggle.astro";
+import { getNavLinks, site } from "@/constants/site";
+import { getI18N, getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
+
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const navLinks = getNavLinks(lang);
+const homeHref = localizePath(lang, "index");
 
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
-  href === "/" ? pathname === "/" : pathname.startsWith(href);
+  href === "/" || href === "/en" || href === "/en/"
+    ? pathname === "/" || pathname === "/en" || pathname === "/en/"
+    : pathname.startsWith(href);
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-white/10 bg-primary">
   <nav
     class="container-x flex h-20 items-center justify-between gap-6"
-    aria-label="Navegación principal"
+    aria-label={i18n.nav.home}
   >
     <a
-      href="/"
+      href={homeHref}
       class="flex shrink-0 items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
     >
       <Image
         src={site.logo}
-        alt={site.logoAlt}
+        alt={i18n.site.logoAlt}
         widths={[160, 320]}
         sizes="160px"
         loading="eager"
         class="h-11 w-auto object-contain brightness-0 invert"
       />
       <span class="text-sm font-bold text-white leading-tight hidden sm:inline-block">
-        {site.tagline}
+        {i18n.site.tagline}
       </span>
-      <span class="sr-only">{site.name}</span>
+      <span class="sr-only">{i18n.site.name}</span>
     </a>
 
     <ul class="hidden items-center gap-1 lg:flex">
@@ -53,6 +63,8 @@ const isActive = (href: string) =>
     </ul>
 
     <div class="flex items-center gap-3">
+      <LangToggle label={i18n.nav.language} />
+
       <div class="hidden lg:block">
         <ThemeToggle />
       </div>
@@ -62,7 +74,7 @@ const isActive = (href: string) =>
         data-nav-toggle
         aria-expanded="false"
         aria-controls="mobile-menu"
-        aria-label="Abrir menú"
+        aria-label={i18n.nav.openMenu}
         class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-colors duration-200 hover:bg-white/20 lg:hidden"
       >
         <svg
@@ -105,7 +117,8 @@ const isActive = (href: string) =>
           </li>
         ))
       }
-      <li class="pt-2">
+      <li class="pt-2 flex items-center justify-between px-3">
+        <span class="text-xs uppercase text-white/70 font-semibold">{i18n.nav.theme}</span>
         <ThemeToggle />
       </li>
     </ul>
@@ -116,7 +129,6 @@ const isActive = (href: string) =>
   let navAbortController: AbortController | null = null;
 
   function setupNav() {
-    // Cancela los listeners anteriores antes de re-registrar
     if (navAbortController) navAbortController.abort();
     navAbortController = new AbortController();
     const signal = navAbortController.signal;
@@ -125,15 +137,12 @@ const isActive = (href: string) =>
     const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
     if (!toggle || !menu) return;
 
-    // Asegura que el menú empieza cerrado
     menu.hidden = true;
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Abrir menú");
 
     const close = () => {
       menu.hidden = true;
       toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Abrir menú");
     };
 
     toggle.addEventListener(
@@ -145,7 +154,6 @@ const isActive = (href: string) =>
         } else {
           menu.hidden = false;
           toggle.setAttribute("aria-expanded", "true");
-          toggle.setAttribute("aria-label", "Cerrar menú");
         }
       },
       { signal },

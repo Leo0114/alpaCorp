@@ -3,22 +3,13 @@ import { actions } from "astro:actions";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import { contactForm } from "@/constants/contacto";
+import type es from "@/constants/es.json";
 
-const { fields, errors: messages } = contactForm;
+export type ContactFormDict = typeof es.contacto.contactForm;
 
-const schema = z.object({
-  nombre: z.string().trim().min(3, messages.nombreMin),
-  correo: z.email(messages.correoInvalid),
-  telefono: z
-    .string()
-    .trim()
-    .min(10, messages.telefonoMin)
-    .regex(/^[\d\s()+-]+$/, messages.telefonoInvalid),
-  mensaje: z.string().trim().min(10, messages.mensajeMin),
-});
-
-export type ContactValues = z.infer<typeof schema>;
+interface Props {
+  dict: ContactFormDict;
+}
 
 const fieldClass =
   "w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-muted/60 transition-colors duration-200 focus:border-secondary focus:outline-none";
@@ -26,7 +17,22 @@ const labelClass =
   "mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted";
 const errorClass = "mt-2 text-xs font-medium text-red-500";
 
-export function ContactForm() {
+export function ContactForm({ dict }: Props) {
+  const { fields, errors: messages } = dict;
+
+  const schema = z.object({
+    nombre: z.string().trim().min(3, messages.nombreMin),
+    correo: z.email(messages.correoInvalid),
+    telefono: z
+      .string()
+      .trim()
+      .min(10, messages.telefonoMin)
+      .regex(/^[\d\s()+-]+$/, messages.telefonoInvalid),
+    mensaje: z.string().trim().min(10, messages.mensajeMin),
+  });
+
+  type ContactValues = z.infer<typeof schema>;
+
   const {
     register,
     handleSubmit,
@@ -43,17 +49,16 @@ export function ContactForm() {
 
       if (error) throw new Error(error.message);
 
-      toast.success(contactForm.successTitle, {
-        description: contactForm.successText,
+      toast.success(dict.successTitle, {
+        description: dict.successText,
       });
       reset();
     } catch {
-      toast.error(contactForm.errorTitle, {
-        description: contactForm.errorText,
+      toast.error(dict.errorTitle, {
+        description: dict.errorText,
       });
     }
   };
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
@@ -133,7 +138,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-secondary px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-primary disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
-        {isSubmitting ? contactForm.submitting : contactForm.submit}
+        {isSubmitting ? dict.submitting : dict.submit}
       </button>
     </form>
   );

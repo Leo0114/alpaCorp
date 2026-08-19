@@ -1,6 +1,6 @@
 ---
 name: Personal inhouse
-Image: ../../assets/images/img03.avif
+Image: ../../../assets/images/img03.avif
 description: Recolección de material de desperdicio.
 gallery: marcas
 order: 2

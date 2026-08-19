@@ -6,21 +6,28 @@ import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import WhatsApp from "@/components/shared/WhatsApp.astro";
 import { Toaster } from "@/components/shared/Toaster";
-import { site } from "@/constants/site";
+import { getI18N, getLang } from "@/i18n/i18n";
+import { switchLocalePath } from "@/i18n/utils";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { title, description = site.description } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
 
-const pageTitle = title ? `${title} | ${site.shortName}` : `${site.shortName} | ${site.tagline}`;
+const { title, description = i18n.seo.defaultDescription } = Astro.props;
+
+const pageTitle = title ? `${title} | ${i18n.seo.shortName}` : `${i18n.seo.shortName} | ${i18n.seo.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+
+const esHref = new URL(switchLocalePath(Astro.url, "es"), Astro.site ?? Astro.url).href;
+const enHref = new URL(switchLocalePath(Astro.url, "en"), Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,6 +39,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
     />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="alternate" hreflang="es" href={esHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={esHref} />
 
     <SEO
       title={pageTitle}
@@ -45,7 +56,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
           image: new URL("/logo.png", Astro.site ?? Astro.url).href,
         },
         optional: {
-          siteName: site.legalName,
+          siteName: i18n.seo.siteName,
           description,
         },
       }}

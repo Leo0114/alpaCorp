@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
 
 interface Props {
   servicio: CollectionEntry<"servicios">;
@@ -16,10 +18,14 @@ const {
   class: className = "",
 } = Astro.props;
 const { name, description, Image: cover } = servicio.data;
+
+const lang = getLang(Astro.currentLocale);
+const slug = servicio.id.replace(`${lang}/`, "");
+const href = localizePath(lang, "services", slug);
 ---
 
 <a
-  href={`/servicios/${servicio.id}`}
+  href={href}
   class:list={[
     "group relative isolate flex h-full min-h-[20rem] flex-col justify-end overflow-hidden rounded-2xl p-7 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary",
     className,

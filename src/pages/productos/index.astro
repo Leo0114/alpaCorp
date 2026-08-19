@@ -5,27 +5,32 @@ import Banner from "@/components/shared/Banner.astro";
 import SectionHeading from "@/components/shared/SectionHeading.astro";
 import ProductCard from "@/components/productos/ProductCard.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { banner, productosPage } from "@/constants/productos";
+import { getI18N, getLang } from "@/i18n/i18n";
+import heroImage from "@/assets/images/4786.avif";
 
-const productos = (await getCollection("productos")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const data = i18n.productos;
+
+const productos = (
+  await getCollection("productos", (item) => item.id.startsWith(`${lang}/`))
+).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<Layout title={banner.subtitle} description={productosPage.text}>
+<Layout title={i18n.seo.productsTitle} description={i18n.seo.productsDescription}>
   <Banner
-    title={banner.title}
-    subtitle={banner.subtitle}
-    image={banner.image}
-    imageAlt={banner.imageAlt}
+    title={data.banner.title}
+    subtitle={data.banner.subtitle}
+    image={heroImage}
+    imageAlt={data.banner.imageAlt}
   />
 
   <section class="bg-canvas">
     <div class="container-x py-16 lg:py-24">
       <SectionHeading
-        topTag={productosPage.topTag}
-        title={productosPage.title}
-        text={productosPage.text}
+        topTag={data.page.topTag}
+        title={data.page.title}
+        text={data.page.text}
         align="center"
       />
 
@@ -35,7 +40,7 @@ const productos = (await getCollection("productos")).sort(
             <ScrollReveal client:visible delay={(index % 3) * 0.1} className="h-full">
               <ProductCard
                 producto={producto}
-                cta={productosPage.cta}
+                cta={data.page.cta}
                 loading={index < 3 ? "eager" : "lazy"}
               />
             </ScrollReveal>

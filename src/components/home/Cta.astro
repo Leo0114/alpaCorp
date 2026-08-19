@@ -2,13 +2,20 @@
 import { Image } from "astro:assets";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { Button } from "@/components/ui/Button";
-import { ctaComponent } from "@/constants/home";
+import { getI18N, getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
+import ctaImage from "@/assets/images/imgw43-scaled.avif";
+
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const data = i18n.home.ctaComponent;
+const contactHref = localizePath(lang, "contact");
 ---
 
 <section class="relative isolate overflow-hidden bg-primary">
   <Image
-    src={ctaComponent.image}
-    alt={ctaComponent.imageAlt}
+    src={ctaImage}
+    alt={data.imageAlt}
     widths={[640, 1024, 1600]}
     sizes="100vw"
     loading="lazy"
@@ -26,24 +33,24 @@ import { ctaComponent } from "@/constants/home";
         <p
           class="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary"
         >
-          {ctaComponent.topTag}
+          {data.topTag}
         </p>
         <h2
           class="font-display text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl"
         >
-          {ctaComponent.title}
+          {data.title}
         </h2>
         <span class="mt-6 block h-1 w-16 rounded-full bg-secondary"></span>
         <p class="mt-6 text-base leading-relaxed text-white/80">
-          {ctaComponent.p1}
+          {data.p1}
         </p>
         <Button
           variant="secondary"
           size="lg"
-          href={ctaComponent.href}
+          href={contactHref}
           className="mt-8"
         >
-          {ctaComponent.bgButton}
+          {data.bgButton}
         </Button>
       </div>
     </ScrollReveal>

@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import { getI18N, getLang } from "@/i18n/i18n";
 import heroImage from "@/assets/images/4786.avif";
 
-const lang = getLang(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
 const data = i18n.servicios;
 

@@ -1,6 +1,6 @@
 ---
 name: Tratamiento Térmico (HT)
-Image: ../../assets/images/nimg3.avif
+Image: ../../../assets/images/nimg3.avif
 description: Certificamos nuestros empaques de madera bajo la NOM-144-SEMARNAT-2017 para exportación.
 gallery: marcas
 order: 3

@@ -1,6 +1,6 @@
 ---
 name: Tarima reciclada
-Image: ../../assets/images/tarimas/reciclada.webp
+Image: ../../../assets/images/tarimas/reciclada.webp
 description: Solución de tarima sustentable en beneficio del medio ambiente y para reducir costos.
 gallery: gal
 order: 6

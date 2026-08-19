@@ -15,7 +15,7 @@ import one from "@/assets/images/one.avif";
 import two from "@/assets/images/two.avif";
 import three from "@/assets/images/three.avif";
 
-const lang = getLang(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
 
 const heroImages = [one, two, three];
@@ -33,27 +33,27 @@ const heroSlides = i18n.home.heroSlides.map((slide, i) => ({
 ---
 
 <Layout title={i18n.seo.homeTitle} description={i18n.seo.defaultDescription}>
-  {/* Impacto */}
+  {/* Impact */}
   <HeroSlider client:load slides={heroSlides} />
 
-  {/* Credenciales rápidas*/}
+  {/* Key indicators */}
   <IndicadoresClave />
 
-  {/* Quiénes somos*/}
+  {/* About us */}
   <NuestraEmpresa />
 
-  {/* Prueba social*/}
+  {/* Key brands */}
   <MarcasAncla />
 
-  {/* Relevancia*/}
+  {/* Industry challenges */}
   <ProblemasIndustrias />
 
-  {/* Productos */}
+  {/* Products */}
   <Productos />
 
   {/* CTA */}
   <Cta />
 
-  {/* Servicios */}
+  {/* Services */}
   <Servicios />
 </Layout>

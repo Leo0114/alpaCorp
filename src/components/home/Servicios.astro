@@ -3,18 +3,22 @@ import { getCollection } from "astro:content";
 import SectionHeading from "@/components/shared/SectionHeading.astro";
 import ServiceCard from "@/components/servicios/ServiceCard.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { serviciosSection } from "@/constants/home";
+import { getI18N, getLang } from "@/i18n/i18n";
 
-const servicios = (await getCollection("servicios")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const data = i18n.home.serviciosSection;
+
+const servicios = (
+  await getCollection("servicios", (item) => item.id.startsWith(`${lang}/`))
+).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="servicios" class="bg-canvas">
   <div class="container-x py-16 lg:py-24">
     <SectionHeading
-      topTag={serviciosSection.topTag}
-      title={serviciosSection.title}
+      topTag={data.topTag}
+      title={data.title}
       align="center"
     />
 
@@ -22,7 +26,7 @@ const servicios = (await getCollection("servicios")).sort(
       {
         servicios.map((servicio, index) => (
           <ScrollReveal client:visible delay={index * 0.1} className="h-full">
-            <ServiceCard servicio={servicio} cta={serviciosSection.cta} />
+            <ServiceCard servicio={servicio} cta={data.cta} />
           </ScrollReveal>
         ))
       }

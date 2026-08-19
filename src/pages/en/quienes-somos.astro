@@ -11,7 +11,7 @@ import { getI18N, getLang } from "@/i18n/i18n";
 import { localizePath } from "@/i18n/utils";
 import heroImage from "@/assets/images/four.avif";
 
-const lang = getLang(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
 const data = i18n.quienesSomos;
 const contactHref = localizePath(lang, "contact");

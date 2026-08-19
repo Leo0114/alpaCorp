@@ -1,6 +1,6 @@
 ---
 name: Empaque de Madera
-Image: ../../assets/images/tarimas/proteccion2.avif
+Image: ../../../assets/images/tarimas/proteccion2.avif
 description: Solución robusta y confiable para la protección y contención segura de cargas industriales.
 gallery: gal
 order: 7

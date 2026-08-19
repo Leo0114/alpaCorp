@@ -1,0 +1,363 @@
+{
+  "seo": {
+    "siteName": "Empaques Industriales Alpa S.A. de C.V.",
+    "shortName": "AlpaCorp",
+    "tagline": "Industrial Pallets and Packaging",
+    "defaultDescription": "Empaques Industriales ALPA, leader in wooden industrial packaging since 1993. Our highly trained team is dedicated to satisfying customer needs, prioritizing long-term commercial relationships.",
+    "homeTitle": "Industrial Wooden Pallets and Packaging in Monterrey",
+    "aboutTitle": "About Us",
+    "aboutDescription": "Over 30 years manufacturing high-quality wooden industrial packaging in Monterrey and Northeastern Mexico.",
+    "productsTitle": "Our Products",
+    "productsDescription": "Standard wooden pallets, notched pallets, wing pallets, block pallets, crates, and custom industrial packaging.",
+    "servicesTitle": "Our Services",
+    "servicesDescription": "Industrial packaging services: inventory management, in-house staff, HT heat treatment, and custom pallets.",
+    "contactTitle": "Contact Us",
+    "contactDescription": "Get in touch with Empaques Industriales ALPA to request custom quotes tailored to your operation."
+  },
+  "site": {
+    "name": "Empaques Industriales ALPA",
+    "legalName": "Empaques Industriales Alpa S.A. de C.V.",
+    "shortName": "AlpaCorp",
+    "tagline": "Industrial Pallets and Packaging",
+    "description": "Empaques Industriales ALPA, leader in wooden industrial packaging since 1993. Our highly trained team is dedicated to satisfying customer needs, prioritizing long-term commercial relationships.",
+    "logoAlt": "Empaques Industriales ALPA Logo",
+    "address": "Calle Benito Juárez #2521, Col. Guadalupe Victoria, Guadalupe, N.L., Mexico",
+    "schedule": "Monday to Friday from 8:00 AM to 6:00 PM",
+    "phone": "+52 81 1535 3240",
+    "email": "ventas@alpacorp.mx"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "services": "Services",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "home": {
+    "heroIntro": {
+      "cards": [
+        {
+          "title": "Our Products",
+          "text": "Custom wooden solutions engineered to fit your specific operational needs.",
+          "cta": "Learn More",
+          "alt": "Wooden pallets manufactured by Empaques Industriales ALPA"
+        },
+        {
+          "title": "Our Services",
+          "text": "Flexible processes: from a single pallet to complete inventory management.",
+          "cta": "Learn More",
+          "alt": "Wooden industrial packaging services"
+        },
+        {
+          "title": "About Us",
+          "text": "Over 30 years manufacturing wooden industrial packaging in Monterrey.",
+          "cta": "Learn More",
+          "alt": "Empaques Industriales ALPA Plant"
+        }
+      ]
+    },
+    "nuestraEmpresa": {
+      "topTag": "OUR COMPANY",
+      "title": "Empaques Industriales ALPA",
+      "bgButton": "Learn More",
+      "p1": "Since its establishment in 1993 by Eng. Alfonso Antillón, our company has been dedicated to supplying wooden industrial packaging to meet the rigorous demands of industry in Monterrey.",
+      "p2": "We specialize in processing both domestic and imported pine wood to manufacture products that respond directly to our clients' unique specifications. Our mission is to deliver solutions that optimize your resources while guaranteeing effective product protection, backed by impeccable service.",
+      "p3": "With more than 30 years of market experience, we have perfected the production of high-quality wooden packaging. We continue to innovate and accept new challenges to grow alongside our clients and exceed expectations.",
+      "imageAlt": "Wooden pallet manufacturing at ALPA",
+      "logoAlt": "Empaques Industriales ALPA Logo"
+    },
+    "productosSection": {
+      "topTag": "OUR PRODUCTS",
+      "title": "Wooden solutions custom-designed for your operational requirements",
+      "cta": "Learn More",
+      "ctaAll": "View All Products"
+    },
+    "ctaComponent": {
+      "topTag": "PROFESSIONAL SOLUTIONS",
+      "title": "OUR SERVICES",
+      "p1": "Our production and administrative processes adapt to client needs—providing everything from individual pallets to complete vendor-managed inventory systems so your operation never faces stockouts.",
+      "bgButton": "Contact Us",
+      "imageAlt": "Wooden pallet warehouse"
+    },
+    "serviciosSection": {
+      "topTag": "PROFESSIONAL SOLUTIONS",
+      "title": "Our Services",
+      "cta": "Learn More"
+    },
+    "clientesSection": {
+      "topTag": "OUR CLIENTS",
+      "title": "Key industry leaders who rely on ALPA",
+      "logoAlt": "Client logo of Empaques Industriales ALPA"
+    },
+    "heroSlides": [
+      {
+        "topTag": "PALLETS & INDUSTRIAL PACKAGING",
+        "title": "Protecting what moves your industry.",
+        "subtitle": "Over 30 years engineering industrial packaging solutions for companies that cannot afford downtime.",
+        "cta": "Request a Quote",
+        "imageAlt": "Wooden pallets by Empaques Industriales ALPA"
+      },
+      {
+        "topTag": "LONG-TERM PARTNERSHIPS",
+        "title": "Decades protecting supply chains for top global brands.",
+        "subtitle": "Industry leaders like Whirlpool have trusted ALPA for over 30 years. We are not just a vendor—we are an integral part of your production chain.",
+        "cta": "Meet Our Clients",
+        "imageAlt": "ALPA wooden pallet warehouse"
+      },
+      {
+        "topTag": "BUILDING ROOTS, GROWING TOGETHER",
+        "title": "We build long-term relationships, not just pallets.",
+        "subtitle": "We seamlessly integrate into your facility, understand your volumes, and scale our operation alongside yours.",
+        "cta": "Learn More About Us",
+        "imageAlt": "Empaques Industriales ALPA team"
+      }
+    ],
+    "indicadoresClave": {
+      "topTag": "BY THE NUMBERS",
+      "items": [
+        {
+          "value": "30+",
+          "label": "Years of experience",
+          "note": ""
+        },
+        {
+          "value": "50+",
+          "label": "Active accounts",
+          "note": "In Northeastern Mexico"
+        },
+        {
+          "value": "HT",
+          "label": "NOM-144 Certification",
+          "note": "International export ready"
+        },
+        {
+          "value": "Northeast",
+          "label": "Geographic coverage",
+          "note": "Mexico"
+        },
+        {
+          "value": "1993",
+          "label": "Founded in",
+          "note": "Guadalupe, N.L."
+        }
+      ]
+    },
+    "marcasAncla": {
+      "topTag": "TRUSTED BY INDUSTRY LEADERS",
+      "title": "Leading brands rely on ALPA",
+      "subtitle": "For over 30 years, we have served as the strategic packaging partner for major manufacturers in Mexico.",
+      "cta": "View All Our Clients",
+      "brands": {
+        "whirlpool": "30+ years of continuous partnership",
+        "lg": "Packaging for nationwide distribution",
+        "vitro": "Custom glass protection solutions",
+        "mekraLang": "Tailored packaging logistics",
+        "thermotek": "Heavy-duty HVAC packaging",
+        "foremesG": "Specialized industrial packaging",
+        "hebel": "Pallets for heavy construction materials",
+        "danfoss": "Protected industrial component crating"
+      }
+    },
+    "problemasIndustrias": {
+      "topTag": "CHALLENGES WE SOLVE",
+      "title": "Industries where reliability is non-negotiable",
+      "subtitle": "If your operation relies on consistent, high-volume industrial packaging, ALPA is your answer.",
+      "industries": [
+        {
+          "industry": "Manufacturing & Automotive",
+          "problem": "Pallet stockouts halting assembly line production",
+          "solution": "Vendor-managed inventory with scheduled deliveries. Never halt a line due to missing packaging again.",
+          "badge": "Inventory Management"
+        },
+        {
+          "industry": "Home Appliances",
+          "problem": "Product damage during freight and logistics",
+          "solution": "Custom-engineered pallets built for exact product dimensions, weight distributions, and transit stresses.",
+          "badge": "Custom Pallets"
+        },
+        {
+          "industry": "Construction & HVAC",
+          "problem": "Standard packaging failing under heavy or irregular loads",
+          "solution": "Heavy-duty reinforced pallets and custom crates engineered for machinery, equipment, and structural materials.",
+          "badge": "In-house Staff"
+        },
+        {
+          "industry": "Global Export",
+          "problem": "Customs rejecting wooden packaging lacking fitosanitary seals",
+          "solution": "In-house heat treatment (HT) compliant with NOM-144-SEMARNAT-2017 / ISPM-15. Certified and stamped packaging.",
+          "badge": "HT Treatment"
+        }
+      ]
+    }
+  },
+  "quienesSomos": {
+    "banner": {
+      "title": "About Us",
+      "subtitle": "Industrial Pallets and Packaging",
+      "imageAlt": "Empaques Industriales ALPA Plant"
+    },
+    "valores": {
+      "topTag": "OUR DISTINCTION",
+      "title": "Commitment in Every Delivery",
+      "items": [
+        {
+          "title": "Mission",
+          "text": "To provide solutions that optimize client resource utilization and ensure effective product protection, backed by uncompromised quality."
+        },
+        {
+          "title": "Experience",
+          "text": "Over 30 years in the industrial market has allowed us to perfect the production of high-grade wooden packaging."
+        },
+        {
+          "title": "Raw Materials",
+          "text": "We process carefully selected domestic and imported pine wood tailored to meet the specific requirements of every project."
+        },
+        {
+          "title": "Long-Term Relationships",
+          "text": "Our skilled team prioritizes durable, trusted commercial partnerships with every customer we serve."
+        }
+      ]
+    },
+    "conducta": {
+      "topTag": "SOCIAL RESPONSIBILITY",
+      "title": "Social Responsibility and Code of Conduct",
+      "text": "Committed to conducting business in a responsible manner",
+      "p1": "At ALPA, we are committed to an ethical, responsible, and sustainable operation. We hold a Social Responsibility Certification endorsing our commitment to corporate best practices, respect for our workforce, environmental care, and community responsibility.",
+      "p2": "Furthermore, we operate under a certified Code of Conduct setting forth the core principles that govern our relationships with employees, clients, suppliers, and stakeholders.",
+      "commitmentTag": "Our commitment is anchored in the principles of",
+      "principles": [
+        "Corporate ethics and business integrity",
+        "Respect for labor and human rights",
+        "Social responsibility",
+        "Environmental care and protection",
+        "Transparency in commercial relationships",
+        "Compliance with applicable laws and regulations",
+        "Responsible client and supplier partnerships"
+      ],
+      "bottomText": "These certifications represent more than recognition: they are an integral part of how we do business and our dedication to building trust and long-term relationships.",
+      "downloadButton": "Download Code of Conduct"
+    },
+    "cta": {
+      "topTag": "LET'S WORK TOGETHER",
+      "title": "Need a Custom Packaging Solution?",
+      "text": "Tell us what you need to transport or store, and we will design the ideal wooden packaging for your operation.",
+      "bgButton": "Contact Us"
+    }
+  },
+  "productos": {
+    "banner": {
+      "title": "Industrial Pallets and Packaging",
+      "subtitle": "Our Products",
+      "imageAlt": "Stacked wooden pallets"
+    },
+    "page": {
+      "topTag": "OUR PRODUCTS",
+      "title": "Custom-designed wooden solutions engineered for client requirements",
+      "text": "We manufacture using high-grade domestic and imported pine wood. Every product is customized to your exact payload, dimensions, and transit requirements.",
+      "cta": "Learn More"
+    },
+    "detail": {
+      "backLabel": "Back to Products",
+      "descriptionTitle": "Overview",
+      "galleryTitle": "Gallery",
+      "ctaTitle": "Interested in this product?",
+      "ctaText": "Request a customized quote tailored to your dimensions, payload capacity, and order volume.",
+      "ctaButton": "Request Quote",
+      "relatedTitle": "Related Products"
+    }
+  },
+  "servicios": {
+    "banner": {
+      "title": "Our Services",
+      "subtitle": "Industrial Pallets and Packaging",
+      "imageAlt": "Industrial wooden packaging services"
+    },
+    "detail": {
+      "backLabel": "Back to Home",
+      "descriptionTitle": "Service Overview",
+      "galleryTitle": "Clients who trust us",
+      "ctaTitle": "Interested in this service for your plant?",
+      "ctaText": "Our production and administrative workflows adapt to your specific plant operations. Contact us today.",
+      "ctaButton": "Contact Us",
+      "otrosTitle": "Other Services"
+    }
+  },
+  "contacto": {
+    "banner": {
+      "title": "Contact Us",
+      "subtitle": "Industrial Pallets and Packaging",
+      "imageAlt": "Empaques Industriales ALPA Plant"
+    },
+    "contactCta": {
+      "topTag": "HERE TO HELP",
+      "title": "Let's discuss your project",
+      "text": "Tell us what you need to transport, store, or export, and our team will recommend the right wooden packaging specification.",
+      "whatsappLabel": "Send us a WhatsApp"
+    },
+    "contactForm": {
+      "topTag": "GET IN TOUCH",
+      "title": "Send Us a Message",
+      "text": "We will respond to your inquiry promptly.",
+      "submit": "Submit Message",
+      "submitting": "Sending...",
+      "successTitle": "Message Sent!",
+      "successText": "Thank you for reaching out. Our team will contact you shortly.",
+      "errorTitle": "Unable to send message",
+      "errorText": "Please try again or contact us directly via WhatsApp.",
+      "fields": {
+        "nombre": {
+          "label": "Full Name",
+          "placeholder": "John Doe"
+        },
+        "correo": {
+          "label": "Email Address",
+          "placeholder": "john@company.com"
+        },
+        "telefono": {
+          "label": "Phone Number",
+          "placeholder": "+1 81 1234 5678"
+        },
+        "mensaje": {
+          "label": "Message",
+          "placeholder": "Tell us about your operational needs..."
+        }
+      },
+      "errors": {
+        "nombreMin": "Please enter your full name (minimum 3 characters).",
+        "correoInvalid": "Please enter a valid email address.",
+        "telefonoMin": "Please enter a valid phone number with at least 10 digits.",
+        "telefonoInvalid": "Phone number can only contain digits.",
+        "mensajeMin": "Please provide a bit more detail (minimum 10 characters)."
+      }
+    },
+    "mapSection": {
+      "topTag": "LOCATION",
+      "title": "Visit Us",
+      "iframeTitle": "Location map of Empaques Industriales Alpa"
+    }
+  },
+  "whatsapp": {
+    "label": "Send us a WhatsApp",
+    "message": "Hello, I would like to request information about your industrial pallets and packaging."
+  },
+  "footer": {
+    "about": "Over 30 years manufacturing custom wooden industrial packaging for leaders across Monterrey and Northeastern Mexico.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact Information",
+    "productsTitle": "Products",
+    "copyright": "Empaques Industriales Alpa S.A. de C.V. {year} | All Rights Reserved"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "contactUs": "Contact Us",
+    "back": "Back",
+    "emailLabel": "Email:",
+    "phoneLabel": "Phone:",
+    "addressLabel": "Address:"
+  }
+}

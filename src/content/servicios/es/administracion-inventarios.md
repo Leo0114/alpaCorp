@@ -1,6 +1,6 @@
 ---
 name: Administración de Inventarios
-Image: ../../assets/images/img04.avif
+Image: ../../../assets/images/img04.avif
 description: Sistema integral para que nunca caigas en stockout de empaques en tu planta.
 gallery: marcas
 order: 4

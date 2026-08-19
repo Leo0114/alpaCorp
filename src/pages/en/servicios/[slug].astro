@@ -12,9 +12,9 @@ import { localizePath } from "@/i18n/utils";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const servicios = await getCollection("servicios", (item) => item.id.startsWith("es/"));
+  const servicios = await getCollection("servicios", (item) => item.id.startsWith("en/"));
   return servicios.map((servicio) => ({
-    params: { slug: servicio.id.replace("es/", "") },
+    params: { slug: servicio.id.replace("en/", "") },
     props: { servicio },
   }));
 }
@@ -27,7 +27,7 @@ const { servicio } = Astro.props;
 const { name, description, Image: cover, gallery } = servicio.data;
 const { Content } = await render(servicio);
 
-const lang = getLang(Astro.currentLocale);
+const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
 const data = i18n.servicios.detail;
 const contactHref = localizePath(lang, "contact");

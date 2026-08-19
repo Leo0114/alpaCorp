@@ -1,0 +1,363 @@
+{
+  "seo": {
+    "siteName": "Empaques Industriales Alpa S.A. de C.V.",
+    "shortName": "AlpaCorp",
+    "tagline": "Tarimas y Empaques Industriales",
+    "defaultDescription": "Empaques Industriales ALPA, líder en empaques de madera desde 1993. Nuestro equipo altamente capacitado se dedica a satisfacer las necesidades de nuestros clientes, priorizando relaciones comerciales a largo plazo.",
+    "homeTitle": "Tarimas y Empaques Industriales en Monterrey",
+    "aboutTitle": "Quiénes Somos",
+    "aboutDescription": "Más de 30 años fabricando empaques industriales de madera de alta calidad en Monterrey y el noreste de México.",
+    "productsTitle": "Nuestros Productos",
+    "productsDescription": "Tarimas de madera estándar, con resaque, voladas, de cubo, huacales y empaques industriales diseñados a la medida.",
+    "servicesTitle": "Nuestros Servicios",
+    "servicesDescription": "Servicios de empaque industrial: administración de inventarios, personal inhouse, tratamiento térmico HT y pallets.",
+    "contactTitle": "Contacto",
+    "contactDescription": "Ponte en contacto con Empaques Industriales ALPA para solicitar cotizaciones a la medida de tu operación."
+  },
+  "site": {
+    "name": "Empaques Industriales ALPA",
+    "legalName": "Empaques Industriales Alpa S.A. de C.V.",
+    "shortName": "AlpaCorp",
+    "tagline": "Tarimas y Empaques Industriales",
+    "description": "Empaques Industriales ALPA, líder en empaques de madera desde 1993. Nuestro equipo altamente capacitado se dedica a satisfacer las necesidades de nuestros clientes, priorizando relaciones comerciales a largo plazo.",
+    "logoAlt": "Logotipo de Empaques Industriales ALPA",
+    "address": "Calle Benito Juárez #2521, Col. Guadalupe Victoria, Guadalupe, N.L.",
+    "schedule": "Lunes a viernes de 8:00 a 18:00 h",
+    "phone": "81 1535 3240",
+    "email": "ventas@alpacorp.mx"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Quiénes Somos",
+    "products": "Productos",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "home": {
+    "heroIntro": {
+      "cards": [
+        {
+          "title": "Nuestros productos",
+          "text": "Soluciones de madera diseñadas a la medida y necesidad del cliente.",
+          "cta": "Saber más",
+          "alt": "Tarimas de madera fabricadas por Empaques Industriales ALPA"
+        },
+        {
+          "title": "Nuestros Servicios",
+          "text": "Procesos flexibles: desde un simple pallet hasta la administración de tu inventario.",
+          "cta": "Saber más",
+          "alt": "Servicios de empaque industrial de madera"
+        },
+        {
+          "title": "Quiénes Somos",
+          "text": "Más de 30 años fabricando empaques industriales de madera en Monterrey.",
+          "cta": "Saber más",
+          "alt": "Planta de Empaques Industriales ALPA"
+        }
+      ]
+    },
+    "nuestraEmpresa": {
+      "topTag": "NUESTRA EMPRESA",
+      "title": "Empaques Industriales ALPA",
+      "bgButton": "Saber más",
+      "p1": "Desde su establecimiento en 1993 por el Ing. Alfonso Antillón, nuestra empresa se ha comprometido con el suministro de empaques industriales de madera para satisfacer las necesidades de la industria en Monterrey.",
+      "p2": "Nos especializamos en el manejo de maderas de pino, tanto nacionales como importadas, para la fabricación de productos que responden a las demandas específicas de nuestros clientes. Nuestra misión es proporcionar soluciones que optimicen el uso de sus recursos y aseguren la protección efectiva de sus productos, todo respaldado por un servicio de calidad impecable.",
+      "p3": "Con más de 30 años de experiencia en el mercado, hemos perfeccionado la producción de empaques industriales de madera de alta calidad. Continuamos advancing y aceptando nuevos desafíos para seguir creciendo y superando las expectativas de nuestros clientes.",
+      "imageAlt": "Fabricación de tarimas de madera en ALPA",
+      "logoAlt": "Logotipo de Empaques Industriales ALPA"
+    },
+    "productosSection": {
+      "topTag": "NUESTROS PRODUCTOS",
+      "title": "Soluciones de madera diseñadas a la medida y necesidad del cliente",
+      "cta": "Saber más",
+      "ctaAll": "Ver todos los productos"
+    },
+    "ctaComponent": {
+      "topTag": "PROFESIONALES",
+      "title": "NUESTROS SERVICIOS",
+      "p1": "Nuestros procesos productivos y administrativos se flexibilizan a la necesidad de nuestros clientes, donde proveemos desde un simple pallet hasta un sistema de administración de inventarios con el cual el cliente no se tiene que preocupar por niveles de inventario o por caer en stockout.",
+      "bgButton": "Contáctanos",
+      "imageAlt": "Almacén de tarimas de madera"
+    },
+    "serviciosSection": {
+      "topTag": "PROFESIONALES",
+      "title": "Nuestros Servicios",
+      "cta": "Saber más"
+    },
+    "clientesSection": {
+      "topTag": "NUESTROS CLIENTES",
+      "title": "Principales clientes con los que hemos trabajado",
+      "logoAlt": "Logotipo de cliente de Empaques Industriales ALPA"
+    },
+    "heroSlides": [
+      {
+        "topTag": "TARIMAS Y EMPAQUES INDUSTRIALES",
+        "title": "Protegemos lo que mueve tu industria.",
+        "subtitle": "Más de 30 años diseñando soluciones de embalaje industrial para empresas que no pueden permitirse fallar.",
+        "cta": "Solicita una cotización",
+        "imageAlt": "Tarimas de madera de Empaques Industriales ALPA"
+      },
+      {
+        "topTag": "RELACIONES A LARGO PLAZO",
+        "title": "Llevamos décadas protegiendo las operaciones de las mejores marcas.",
+        "subtitle": "Empresas como Whirlpool confían en ALPA desde hace más de 30 años. No somos un proveedor más: somos parte de su cadena productiva.",
+        "cta": "Conoce nuestros clientes",
+        "imageAlt": "Almacén de tarimas de madera ALPA"
+      },
+      {
+        "topTag": "ECHAR RAÍCES, CRECER JUNTOS",
+        "title": "Buscamos clientes con visión de largo plazo.",
+        "subtitle": "No fabricamos tarimas. Construimos relaciones. Nos integramos a tu operación, entendemos tus volúmenes y crecemos contigo.",
+        "cta": "Saber más de nosotros",
+        "imageAlt": "Equipo de trabajo de Empaques Industriales ALPA"
+      }
+    ],
+    "indicadoresClave": {
+      "topTag": "EN NÚMEROS",
+      "items": [
+        {
+          "value": "30+",
+          "label": "Años de experiencia",
+          "note": ""
+        },
+        {
+          "value": "50+",
+          "label": "Clientes atendidos",
+          "note": "En el noreste de México"
+        },
+        {
+          "value": "HT",
+          "label": "Certificación NOM-144",
+          "note": "Exportación internacional"
+        },
+        {
+          "value": "Noreste",
+          "label": "Cobertura geográfica",
+          "note": "México"
+        },
+        {
+          "value": "1993",
+          "label": "Fundada en",
+          "note": "Guadalupe, N.L."
+        }
+      ]
+    },
+    "marcasAncla": {
+      "topTag": "CONFIANZA EN NÚMEROS",
+      "title": "Las marcas líderes confían en ALPA",
+      "subtitle": "Llevamos más de 30 años siendo el socio de embalaje de marcas líderes en México. Seguimos creciendo con ellos.",
+      "cta": "Ver todos nuestros clientes",
+      "brands": {
+        "whirlpool": "+30 años de relación continua",
+        "lg": "Empaques para distribución nacional",
+        "vitro": "Soluciones de protección de vidrio",
+        "mekraLang": "Logística de embalaje a la medida",
+        "thermotek": "Empaques para HVAC",
+        "foremesG": "Embalaje industrial especializado",
+        "hebel": "Tarimas para materiales de construcción",
+        "danfoss": "Componentes industriales protegidos"
+      }
+    },
+    "problemasIndustrias": {
+      "topTag": "PROBLEMAS QUE RESOLVEMOS",
+      "title": "Industrias que no pueden permitirse fallar",
+      "subtitle": "Si tu operación depende de empaques confiables en volúmenes altos, aquí es donde ALPA entra.",
+      "industries": [
+        {
+          "industry": "Manufactura & Automotriz",
+          "problem": "Stockout de tarimas que para la línea de producción",
+          "solution": "Administración de inventarios con entregas programadas. Nunca más una línea parada por falta de empaques.",
+          "badge": "Administración de Inventarios"
+        },
+        {
+          "industry": "Electrodomésticos",
+          "problem": "Daños al producto durante distribución y transporte",
+          "solution": "Tarimas y empaques diseñados a la medida del producto, con el peso y resistencia exactos que necesita tu línea.",
+          "badge": "Pallets a la medida"
+        },
+        {
+          "industry": "Construcción & HVAC",
+          "problem": "Empaques que no soportan materiales pesados o irregulares",
+          "solution": "Fabricamos tarimas reforzadas y embalaje a la medida para cargas especiales, equipos y materiales de obra.",
+          "badge": "Personal Inhouse"
+        },
+        {
+          "industry": "Exportación",
+          "problem": "Aduanas rechaza el empaque de madera por no tener certificación",
+          "solution": "Tratamiento térmico propio (HT) conforme a NOM-144-SEMARNAT-2017 / NIMF-15. Certificamos y sellamos tu empaque.",
+          "badge": "Tratamiento HT"
+        }
+      ]
+    }
+  },
+  "quienesSomos": {
+    "banner": {
+      "title": "Quiénes Somos",
+      "subtitle": "Tarimas y Empaques Industriales",
+      "imageAlt": "Planta de Empaques Industriales ALPA"
+    },
+    "valores": {
+      "topTag": "LO QUE NOS DISTINGUE",
+      "title": "Compromiso con cada entrega",
+      "items": [
+        {
+          "title": "Misión",
+          "text": "Proporcionar soluciones que optimicen el uso de los recursos de nuestros clientes y aseguren la protección efectiva de sus productos, respaldados por un servicio de calidad impecable."
+        },
+        {
+          "title": "Experiencia",
+          "text": "Más de 30 años en el mercado nos han permitido perfeccionar la producción de empaques industriales de madera de alta calidad."
+        },
+        {
+          "title": "Materia prima",
+          "text": "Trabajamos maderas de pino nacionales e importadas, seleccionadas para responder a las demandas específicas de cada proyecto."
+        },
+        {
+          "title": "Relaciones a largo plazo",
+          "text": "Nuestro equipo altamente capacitado prioriza relaciones comerciales duraderas con cada uno de nuestros clientes."
+        }
+      ]
+    },
+    "conducta": {
+      "topTag": "RESPONSABILIDAD SOCIAL",
+      "title": "Responsabilidad Social y Código de Conducta",
+      "text": "Comprometidos con hacer negocios de manera responsable",
+      "p1": "En ALPA estamos comprometidos con una operación responsable, ética y sostenible. Contamos con una certificación en Responsabilidad Social que avala nuestro compromiso con las buenas prácticas empresariales, el respeto a nuestros colaboradores, el cuidado del medio ambiente y nuestra responsabilidad con la comunidad.",
+      "p2": "Asimismo, contamos con un Código de Conducta certificado, que establece los principios y estándares que deben regir nuestras relaciones con colaboradores, clientes, proveedores y demás grupos de interés.",
+      "commitmentTag": "Nuestro compromiso se basa en principios de",
+      "principles": [
+        "Ética e integridad empresarial",
+        "Respeto a los derechos laborales y humanos",
+        "Responsabilidad social",
+        "Cuidado y protección del medio ambiente",
+        "Transparencia en nuestras relaciones comerciales",
+        "Cumplimiento de las leyes y normativas aplicables",
+        "Relaciones responsables con clientes y proveedores"
+      ],
+      "bottomText": "Estas certificaciones representan más que un reconocimiento: son parte de nuestra manera de hacer negocios y de nuestro compromiso de generar confianza y relaciones comerciales de largo plazo.",
+      "downloadButton": "Descargar Código de Conducta"
+    },
+    "cta": {
+      "topTag": "TRABAJEMOS JUNTOS",
+      "title": "¿Necesitas un empaque a la medida?",
+      "text": "Cuéntanos qué necesitas transportar o almacenar y diseñamos la solución de madera que mejor se ajuste a tu operación.",
+      "bgButton": "Contáctanos"
+    }
+  },
+  "productos": {
+    "banner": {
+      "title": "Tarimas y Empaques Industriales",
+      "subtitle": "Nuestros productos",
+      "imageAlt": "Tarimas de madera apiladas"
+    },
+    "page": {
+      "topTag": "NUESTROS PRODUCTOS",
+      "title": "Soluciones de madera diseñadas a la medida y necesidad del cliente",
+      "text": "Fabricamos con maderas de pino nacionales e importadas. Cada producto se ajusta a las dimensiones, cargas y condiciones de transporte que tu operación necesita.",
+      "cta": "Saber más"
+    },
+    "detail": {
+      "backLabel": "Volver a productos",
+      "descriptionTitle": "Descripción",
+      "galleryTitle": "Galería",
+      "ctaTitle": "¿Te interesa este producto?",
+      "ctaText": "Solicita una cotización a la medida de tus dimensiones, cargas y volúmenes.",
+      "ctaButton": "Solicitar cotización",
+      "relatedTitle": "Otros productos"
+    }
+  },
+  "servicios": {
+    "banner": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Tarimas y Empaques Industriales",
+      "imageAlt": "Servicios de empaque industrial de madera"
+    },
+    "detail": {
+      "backLabel": "Volver al inicio",
+      "descriptionTitle": "En qué consiste",
+      "galleryTitle": "Clientes que confían en nosotros",
+      "ctaTitle": "¿Quieres este servicio en tu planta?",
+      "ctaText": "Nuestros procesos se flexibilizan a la necesidad de cada cliente. Cuéntanos tu caso y lo adaptamos.",
+      "ctaButton": "Contáctanos",
+      "otrosTitle": "Otros servicios"
+    }
+  },
+  "contacto": {
+    "banner": {
+      "title": "Contacto",
+      "subtitle": "Tarimas y Empaques Industriales",
+      "imageAlt": "Planta de Empaques Industriales ALPA"
+    },
+    "contactCta": {
+      "topTag": "ESTAMOS PARA AYUDARTE",
+      "title": "Hablemos de tu proyecto",
+      "text": "Cuéntanos qué necesitas transportar, almacenar o exportar y te ayudamos a definir el empaque de madera adecuado.",
+      "whatsappLabel": "Envíanos un WhatsApp"
+    },
+    "contactForm": {
+      "topTag": "FORMULARIO",
+      "title": "Escríbenos",
+      "text": "Responderemos tu solicitud en el menor tiempo posible.",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "successTitle": "¡Mensaje enviado!",
+      "successText": "Gracias por escribirnos, te contactaremos muy pronto.",
+      "errorTitle": "No pudimos enviar tu mensaje",
+      "errorText": "Inténtalo de nuevo o escríbenos por WhatsApp.",
+      "fields": {
+        "nombre": {
+          "label": "Nombre completo",
+          "placeholder": "Juan Pérez"
+        },
+        "correo": {
+          "label": "Correo electrónico",
+          "placeholder": "correo@empresa.com"
+        },
+        "telefono": {
+          "label": "Teléfono",
+          "placeholder": "81 1234 5678"
+        },
+        "mensaje": {
+          "label": "Mensaje",
+          "placeholder": "Cuéntanos qué necesitas..."
+        }
+      },
+      "errors": {
+        "nombreMin": "Escribe tu nombre completo (mínimo 3 caracteres).",
+        "correoInvalid": "Escribe un correo electrónico válido.",
+        "telefonoMin": "Escribe un teléfono de al menos 10 dígitos.",
+        "telefonoInvalid": "El teléfono sólo puede contener números.",
+        "mensajeMin": "Cuéntanos un poco más (mínimo 10 caracteres)."
+      }
+    },
+    "mapSection": {
+      "topTag": "DÓNDE ESTAMOS",
+      "title": "Visítanos",
+      "iframeTitle": "Mapa de ubicación de Empaques Industriales Alpa"
+    }
+  },
+  "whatsapp": {
+    "label": "Envíanos un WhatsApp",
+    "message": "Hola, me gustaría recibir información sobre sus tarimas y empaques industriales."
+  },
+  "footer": {
+    "about": "Más de 30 años fabricando empaques industriales de madera a la medida para la industria de Monterrey y el noreste de México.",
+    "navTitle": "Navegación",
+    "contactTitle": "Contacto",
+    "productsTitle": "Productos",
+    "copyright": "Empaques Industriales Alpa S.A. de C.V. {year} | Todos Los Derechos Reservados"
+  },
+  "common": {
+    "learnMore": "Saber más",
+    "viewAll": "Ver todo",
+    "contactUs": "Contáctanos",
+    "back": "Volver",
+    "emailLabel": "Correo:",
+    "phoneLabel": "Teléfono:",
+    "addressLabel": "Dirección:"
+  }
+}

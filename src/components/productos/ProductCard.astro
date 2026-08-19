@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
 
 interface Props {
   producto: CollectionEntry<"productos">;
@@ -10,7 +12,10 @@ interface Props {
 
 const { producto, cta, loading = "lazy" } = Astro.props;
 const { name, description, Image: cover } = producto.data;
-const href = `/productos/${producto.id}`;
+
+const lang = getLang(Astro.currentLocale);
+const slug = producto.id.replace(`${lang}/`, "");
+const href = localizePath(lang, "products", slug);
 ---
 
 <article
@@ -44,7 +49,7 @@ const href = `/productos/${producto.id}`;
 
     <a
       href={href}
-      aria-label={`${cta} sobre ${name}`}
+      aria-label={`${cta} - ${name}`}
       class="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-secondary px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-primary"
     >
       {cta}

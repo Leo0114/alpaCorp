@@ -3,9 +3,12 @@ import SectionHeading from "@/components/shared/SectionHeading.astro";
 import ClientesSlider, {
   type ClientLogo,
 } from "@/components/home/ClientesSlider";
-import { clientesSection } from "@/constants/home";
+import { getI18N, getLang } from "@/i18n/i18n";
 
-// Los logos viven en src/assets/images/marcas: agregar un archivo basta.
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const data = i18n.home.clientesSection;
+
 const modules = import.meta.glob<{ default: ImageMetadata }>(
   "../../assets/images/marcas/*.{png,jpg,jpeg,webp,avif,svg}",
   { eager: true },
@@ -15,7 +18,7 @@ const logos: ClientLogo[] = Object.entries(modules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, mod], index) => ({
     src: mod.default.src,
-    alt: `${clientesSection.logoAlt} ${index + 1}`,
+    alt: `${data.logoAlt} ${index + 1}`,
     width: mod.default.width,
     height: mod.default.height,
   }));
@@ -24,8 +27,8 @@ const logos: ClientLogo[] = Object.entries(modules)
 <section class="bg-panel">
   <div class="container-x py-16 lg:py-20">
     <SectionHeading
-      topTag={clientesSection.topTag}
-      title={clientesSection.title}
+      topTag={data.topTag}
+      title={data.title}
       align="center"
     />
 

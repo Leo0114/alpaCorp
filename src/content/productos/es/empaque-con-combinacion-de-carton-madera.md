@@ -1,6 +1,6 @@
 ---
 name: Empaque con Combinación de Cartón / Madera
-Image: ../../assets/images/tarimas/carton.avif
+Image: ../../../assets/images/tarimas/carton.avif
 description: Diseño híbrido que une la resistencia de la madera y la ligereza del cartón para embalajes eficientes y económicos.
 gallery: gal
 order: 9

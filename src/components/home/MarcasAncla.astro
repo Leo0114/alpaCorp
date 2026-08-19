@@ -1,31 +1,38 @@
 ---
 import SectionHeading from "@/components/shared/SectionHeading.astro";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { marcasAncla } from "@/constants/home";
+import { getI18N, getLang } from "@/i18n/i18n";
 
-// Carga dinámica de logos existentes en /marcas
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const data = i18n.home.marcasAncla;
+
+const brandList = [
+  { name: "Whirlpool", key: "whirlpool" },
+  { name: "LG Electronics", key: "lg" },
+  { name: "Vitro", key: "vitro" },
+  { name: "Mekra Lang", key: "mekraLang" },
+  { name: "Thermotek", key: "thermotek" },
+  { name: "Foremes", key: "foremesG" },
+  { name: "Hebel", key: "hebel" },
+  { name: "Danfoss", key: "danfoss" },
+];
+
 const modules = import.meta.glob<{ default: ImageMetadata }>(
   "../../assets/images/marcas/*.{png,jpg,jpeg,webp,avif,svg}",
   { eager: true },
 );
 
-// Mapa: nombre de archivo (sin extensión) → src de la imagen
 const logoMap: Record<string, string> = {};
 for (const [path, mod] of Object.entries(modules)) {
   const filename = path.split("/").pop()?.replace(/\.\w+$/, "") ?? "";
   logoMap[filename] = mod.default.src;
 }
 
-// Cada marca en el array puede tener una clave "logoKey" que apunte
-// al nombre del archivo; si no se especifica, se busca por el nombre
-// de la marca en minúsculas sin espacios.
-const brandsWithLogos = marcasAncla.brands.map((brand) => {
-  // Intenta coincidir con el archivo de logo (key opcional o nombre normalizado)
-  const key =
-    (brand as { logoKey?: string }).logoKey ??
-    brand.name.toLowerCase().replace(/\s+/g, "");
-  const logoSrc = logoMap[key] ?? null;
-  return { ...brand, logoSrc };
+const brandsWithLogos = brandList.map((brand) => {
+  const logoSrc = logoMap[brand.key] ?? null;
+  const detail = data.brands[brand.key as keyof typeof data.brands] ?? "";
+  return { ...brand, logoSrc, detail };
 });
 ---
 
@@ -33,24 +40,14 @@ const brandsWithLogos = marcasAncla.brands.map((brand) => {
   <div class="container-x py-16 lg:py-24">
     <ScrollReveal client:visible>
       <SectionHeading
-        topTag={marcasAncla.topTag}
-        title={marcasAncla.title}
-        text={marcasAncla.subtitle}
+        topTag={data.topTag}
+        title={data.title}
+        text={data.subtitle}
         align="center"
       />
     </ScrollReveal>
 
-    <!-- Tagline de confianza -->
-    <ScrollReveal client:visible delay={0.1}>
-      <div class="mx-auto mt-6 max-w-xl text-center">
-        <p class="text-sm leading-relaxed text-muted">
-          Más de <strong class="text-secondary font-bold">30 años</strong> siendo parte
-          de la cadena productiva de empresas que no pueden detenerse.
-        </p>
-      </div>
-    </ScrollReveal>
-
-    <!-- Grid de marcas -->
+    {/* Grid de marcas */}
     <div class="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
       {
         brandsWithLogos.map((brand, index) => (
@@ -61,7 +58,6 @@ const brandsWithLogos = marcasAncla.brands.map((brand) => {
             className="h-full"
           >
             <div class="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-canvas px-5 py-6 text-center shadow-xs transition-all duration-300 hover:border-secondary/40 hover:shadow-md hover:-translate-y-1">
-              <!-- Logo de la marca o inicial como fallback -->
               <div class="flex h-16 w-full max-w-30 items-center justify-center">
                 {brand.logoSrc ? (
                   <img
@@ -81,6 +77,9 @@ const brandsWithLogos = marcasAncla.brands.map((brand) => {
               </div>
 
               <p class="font-display text-sm font-bold text-ink">{brand.name}</p>
+              {brand.detail && (
+                <p class="text-xs text-muted leading-tight">{brand.detail}</p>
+              )}
             </div>
           </ScrollReveal>
         ))

@@ -1,6 +1,10 @@
 ---
 import { FaWhatsapp } from "react-icons/fa";
-import { whatsapp } from "@/constants/site";
+import { getWhatsapp } from "@/constants/site";
+import { getLang } from "@/i18n/i18n";
+
+const lang = getLang(Astro.currentLocale);
+const whatsapp = getWhatsapp(lang);
 ---
 
 <div class="fixed bottom-8 right-8 z-50 flex items-center">

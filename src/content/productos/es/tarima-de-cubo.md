@@ -1,6 +1,6 @@
 ---
 name: Tarima de cubo
-Image: ../../assets/images/tarimas/cubo.webp
+Image: ../../../assets/images/tarimas/cubo.webp
 description: Estructura compacta y robusta diseñada para espacios limitados y cargas pesadas.
 gallery: gal
 order: 4

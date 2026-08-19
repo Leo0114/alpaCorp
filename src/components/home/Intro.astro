@@ -1,13 +1,39 @@
 ---
 import { Image } from "astro:assets";
-import { heroIntro } from "@/constants/home";
+import { getI18N, getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
+import image from "@/assets/images/4786.avif";
+
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+
+const cards = [
+  {
+    ...i18n.home.heroIntro.cards[0],
+    href: "#productos",
+    image,
+    featured: true,
+  },
+  {
+    ...i18n.home.heroIntro.cards[1],
+    href: "#servicios",
+    image,
+    featured: false,
+  },
+  {
+    ...i18n.home.heroIntro.cards[2],
+    href: localizePath(lang, "about"),
+    image,
+    featured: false,
+  },
+];
 ---
 
 <section class="bg-canvas">
   <div class="container-x py-10 sm:py-14">
     <div class="grid gap-5 lg:grid-cols-2 lg:grid-rows-2">
       {
-        heroIntro.cards.map((card, index) => (
+        cards.map((card, index) => (
           <a
             href={card.href}
             class:list={[

@@ -2,37 +2,49 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
-import { contact, footer, navLinks, site } from "@/constants/site";
+import { contact, getNavLinks, site } from "@/constants/site";
+import { getI18N, getLang } from "@/i18n/i18n";
+import { localizePath } from "@/i18n/utils";
 
-const productos = (await getCollection("productos")).sort(
-  (a, b) => a.data.order - b.data.order,
+const lang = getLang(Astro.currentLocale);
+const i18n = getI18N(lang);
+const navLinks = getNavLinks(lang);
+const homeHref = localizePath(lang, "index");
+
+const productos = (
+  await getCollection("productos", (item) => item.id.startsWith(`${lang}/`))
+).sort((a, b) => a.data.order - b.data.order);
+
+const copyrightText = i18n.footer.copyright.replace(
+  "{year}",
+  new Date().getFullYear().toString(),
 );
 ---
 
 <footer class="bg-primary text-white">
   <div class="container-x grid gap-12 py-16 lg:grid-cols-4 lg:gap-8">
     <div class="lg:col-span-1">
-      <a href="/" class="flex items-center gap-3">
+      <a href={homeHref} class="flex items-center gap-3">
         <Image
           src={site.logo}
-          alt={site.logoAlt}
+          alt={i18n.site.logoAlt}
           widths={[160, 320]}
           sizes="160px"
           loading="lazy"
           class="h-14 w-auto object-contain brightness-0 invert"
         />
         <span class="text-sm font-bold text-white leading-tight">
-          {site.tagline}
+          {i18n.site.tagline}
         </span>
       </a>
-      <p class="mt-5 text-sm leading-relaxed text-white/70">{footer.about}</p>
+      <p class="mt-5 text-sm leading-relaxed text-white/70">{i18n.footer.about}</p>
     </div>
 
-    <nav aria-label={footer.navTitle}>
+    <nav aria-label={i18n.footer.navTitle}>
       <h2
         class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary"
       >
-        {footer.navTitle}
+        {i18n.footer.navTitle}
       </h2>
       <ul class="mt-5 space-y-3">
         {
@@ -50,24 +62,27 @@ const productos = (await getCollection("productos")).sort(
       </ul>
     </nav>
 
-    <nav aria-label={footer.productsTitle}>
+    <nav aria-label={i18n.footer.productsTitle}>
       <h2
         class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary"
       >
-        {footer.productsTitle}
+        {i18n.footer.productsTitle}
       </h2>
       <ul class="mt-5 space-y-3">
         {
-          productos.map((producto) => (
-            <li>
-              <a
-                href={`/productos/${producto.id}`}
-                class="text-sm text-white/75 transition-colors duration-200 hover:text-secondary"
-              >
-                {producto.data.name}
-              </a>
-            </li>
-          ))
+          productos.map((producto) => {
+            const slug = producto.id.replace(`${lang}/`, "");
+            return (
+              <li>
+                <a
+                  href={localizePath(lang, "products", slug)}
+                  class="text-sm text-white/75 transition-colors duration-200 hover:text-secondary"
+                >
+                  {producto.data.name}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </nav>
@@ -76,7 +91,7 @@ const productos = (await getCollection("productos")).sort(
       <h2
         class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary"
       >
-        {footer.contactTitle}
+        {i18n.footer.contactTitle}
       </h2>
       <ul class="mt-5 space-y-4 text-sm text-white/75">
         <li class="flex gap-3">
@@ -90,7 +105,7 @@ const productos = (await getCollection("productos")).sort(
             rel="noopener noreferrer"
             class="transition-colors duration-200 hover:text-secondary"
           >
-            {contact.address}
+            {i18n.site.address}
           </a>
         </li>
         <li class="flex gap-3">
@@ -102,7 +117,7 @@ const productos = (await getCollection("productos")).sort(
             href={contact.phoneHref}
             class="transition-colors duration-200 hover:text-secondary"
           >
-            {contact.phone}
+            {i18n.site.phone}
           </a>
         </li>
         <li class="flex gap-3">
@@ -114,7 +129,7 @@ const productos = (await getCollection("productos")).sort(
             href={contact.emailHref}
             class="transition-colors duration-200 hover:text-secondary"
           >
-            {contact.email}
+            {i18n.site.email}
           </a>
         </li>
       </ul>
@@ -129,7 +144,7 @@ const productos = (await getCollection("productos")).sort(
         rel="noopener noreferrer"
         class="font-semibold text-white/80 hover:text-secondary transition-colors duration-200"
         >Optim</a
-      > | {footer.copyright}
+      > | {copyrightText}
     </p>
   </div>
 </footer>
