@@ -67,7 +67,7 @@ export const Button = React.forwardRef<
         variantClasses =
           "bg-ink text-canvas rounded-full hover:-translate-y-0.5";
         break;
-      // Verde de marca que vira a primary en hover (identidad AlpaCorp).
+      // Naranja mostaza de marca que vira a primary en hover (identidad AlpaCorp).
       case "secondary":
         variantClasses =
           "rounded-full bg-secondary text-white hover:bg-primary hover:-translate-y-0.5";

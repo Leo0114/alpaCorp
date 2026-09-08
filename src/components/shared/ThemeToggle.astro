@@ -5,15 +5,15 @@ import { FiMoon, FiSun } from "react-icons/fi";
 <button
   data-theme-toggle
   aria-label="Toggle color theme"
-  class="flex cursor-pointer items-center gap-2 px-4 py-2 rounded-full border border-white/25 bg-white/10 text-white text-xs font-semibold uppercase tracking-widest hover:bg-white/20 transition-all duration-200 backdrop-blur-sm cursor-pointer"
+  class="flex cursor-pointer items-center gap-2 px-4 py-2 rounded-full border border-line bg-panel text-ink text-xs font-semibold uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all duration-200 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
 >
-  <span class="shrink-0 text-base flex items-center justify-center text-white">
-    <FiMoon className="block dark:hidden text-white" />
-    <FiSun className="hidden dark:block text-white" />
+  <span class="shrink-0 text-base flex items-center justify-center">
+    <FiMoon className="block dark:hidden" />
+    <FiSun className="hidden dark:block" />
   </span>
   <span
     data-theme-label
-    class="text-white text-xs font-semibold uppercase tracking-widest"
+    class="text-xs font-semibold uppercase tracking-widest"
     >Dark</span
   >
 </button>

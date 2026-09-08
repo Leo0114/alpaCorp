@@ -5,8 +5,8 @@ import type { ContactFormData } from "./contact.schema";
 const BRAND = {
   primary: "#262a73",   // Deep blue — brand primary
   shade: "#1b1f57",     // Darker shade for gradients
-  secondary: "#33ce31", // Vibrant green — brand secondary
-  accent: "#2ab828",    // Green accent darker
+  secondary: "#d2b48c", // Tan — brand secondary
+  accent: "#b8976a",    // Darker tan accent
   surface: "#ffffff",
   surface2: "#f3f4f9",
   ink: "#101223",

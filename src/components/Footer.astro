@@ -24,15 +24,17 @@ const copyrightText = i18n.footer.copyright.replace(
 <footer class="bg-primary text-white">
   <div class="container-x grid gap-12 py-16 lg:grid-cols-4 lg:gap-8">
     <div class="lg:col-span-1">
-      <a href={homeHref} class="flex items-center gap-3">
-        <Image
-          src={site.logo}
-          alt={i18n.site.logoAlt}
-          widths={[160, 320]}
-          sizes="160px"
-          loading="lazy"
-          class="h-14 w-auto object-contain brightness-0 invert"
-        />
+      <a href={homeHref} class="flex items-center gap-3 group">
+        <div class="rounded-xl bg-white/95 p-2 shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
+          <Image
+            src={site.logo}
+            alt={i18n.site.logoAlt}
+            widths={[160, 320]}
+            sizes="160px"
+            loading="lazy"
+            class="h-9 w-auto object-contain"
+          />
+        </div>
         <span class="text-sm font-bold text-white leading-tight">
           {i18n.site.tagline}
         </span>

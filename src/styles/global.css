@@ -3,10 +3,6 @@
 
 @custom-variant dark (&:where(.dark,.dark *));
 
-/* -------------------------------------------------------------------------
-   Design tokens. Los neutros viven en :root / .dark para que el cambio de
-   tema sólo tenga que reescribir el valor de la variable.
-   ---------------------------------------------------------------------- */
 :root {
   --canvas: #ffffff;
   --panel: #f3f4f9;
@@ -24,8 +20,11 @@
 }
 
 @theme inline {
-  --color-primary: #262a73; /* main   */
-  --color-secondary: #33ce31; /* green  */
+  --color-primary: #262a73; /* logo blue main */
+  --color-primary-hover: #1e225e;
+  --color-secondary: #d2b48c; /* secundario oficial  */
+  --color-secondary-hover: #b8976a; /* tan más oscuro */
+  --color-secondary-light: #f5ece0; /* tan muy claro */
   --color-strategic: var(--color-secondary);
 
   --color-canvas: var(--canvas);

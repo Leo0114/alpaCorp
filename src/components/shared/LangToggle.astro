@@ -12,7 +12,6 @@ const { class: className = "", label } = Astro.props;
 
 const current: Lang = getLang(Astro.currentLocale);
 const options = (Object.keys(LANGUAGES) as Lang[]).map((code) => ({
-  code,
   ...LANGUAGES[code],
   href: switchLocalePath(Astro.url, code),
   isActive: code === current,
