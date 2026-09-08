@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import type es from "@/constants/es.json";
+import { pushGTMEvent } from "@/utils/analytics";
 
 export type ContactFormDict = typeof es.contacto.contactForm;
 
@@ -48,6 +49,10 @@ export function ContactForm({ dict }: Props) {
       const { error } = await actions.send(values);
 
       if (error) throw new Error(error.message);
+
+      pushGTMEvent("generate_lead", {
+        form_name: "contact_form",
+      });
 
       toast.success(dict.successTitle, {
         description: dict.successText,
