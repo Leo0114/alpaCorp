@@ -2,9 +2,9 @@
   "seo": {
     "siteName": "Empaques Industriales Alpa S.A. de C.V.",
     "shortName": "AlpaCorp",
-    "tagline": "Tarimas y Empaques Industriales",
+    "tagline": "Empaques Industriales ALPA",
     "defaultDescription": "Empaques Industriales ALPA, líder en empaques de madera desde 1993. Nuestro equipo altamente capacitado se dedica a satisfacer las necesidades de nuestros clientes, priorizando relaciones comerciales a largo plazo.",
-    "homeTitle": "Tarimas y Empaques Industriales en Monterrey",
+    "homeTitle": "Empaques Industriales ALPA en Monterrey",
     "aboutTitle": "Quiénes Somos",
     "aboutDescription": "Más de 30 años fabricando empaques industriales de madera de alta calidad en Monterrey y el noreste de México.",
     "productsTitle": "Nuestros Productos",
@@ -18,7 +18,7 @@
     "name": "Empaques Industriales ALPA",
     "legalName": "Empaques Industriales Alpa S.A. de C.V.",
     "shortName": "AlpaCorp",
-    "tagline": "Tarimas y Empaques Industriales",
+    "tagline": "Empaques Industriales ALPA",
     "description": "Empaques Industriales ALPA, líder en empaques de madera desde 1993. Nuestro equipo altamente capacitado se dedica a satisfacer las necesidades de nuestros clientes, priorizando relaciones comerciales a largo plazo.",
     "logoAlt": "Logotipo de Empaques Industriales ALPA",
     "address": "Calle Benito Juárez #2521, Col. Guadalupe Victoria, Guadalupe, N.L.",
@@ -95,7 +95,7 @@
     },
     "heroSlides": [
       {
-        "topTag": "TARIMAS Y EMPAQUES INDUSTRIALES",
+        "topTag": "EMPAQUES INDUSTRIALES ALPA",
         "title": "Protegemos lo que mueve tu industria.",
         "subtitle": "Más de 30 años diseñando soluciones de embalaje industrial para empresas que no pueden permitirse fallar.",
         "cta": "Solicita una cotización",
@@ -197,7 +197,7 @@
   "quienesSomos": {
     "banner": {
       "title": "Quiénes Somos",
-      "subtitle": "Tarimas y Empaques Industriales",
+      "subtitle": "Empaques Industriales ALPA",
       "imageAlt": "Planta de Empaques Industriales ALPA"
     },
     "valores": {
@@ -250,7 +250,7 @@
   },
   "productos": {
     "banner": {
-      "title": "Tarimas y Empaques Industriales",
+      "title": "Empaques Industriales ALPA",
       "subtitle": "Nuestros productos",
       "imageAlt": "Tarimas de madera apiladas"
     },
@@ -273,7 +273,7 @@
   "servicios": {
     "banner": {
       "title": "Nuestros Servicios",
-      "subtitle": "Tarimas y Empaques Industriales",
+      "subtitle": "Empaques Industriales ALPA",
       "imageAlt": "Servicios de empaque industrial de madera"
     },
     "detail": {
@@ -289,7 +289,7 @@
   "contacto": {
     "banner": {
       "title": "Contacto",
-      "subtitle": "Tarimas y Empaques Industriales",
+      "subtitle": "Empaques Industriales ALPA",
       "imageAlt": "Planta de Empaques Industriales ALPA"
     },
     "contactCta": {
@@ -342,7 +342,7 @@
   },
   "whatsapp": {
     "label": "Envíanos un WhatsApp",
-    "message": "Hola, me gustaría recibir información sobre sus tarimas y empaques industriales."
+    "message": "Hola, me gustaría recibir información sobre sus empaques industriales ALPA."
   },
   "footer": {
     "about": "Más de 30 años fabricando empaques industriales de madera a la medida para la industria de Monterrey y el noreste de México.",

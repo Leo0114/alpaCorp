@@ -2,7 +2,7 @@ import image from "@/assets/images/4786.avif";
 
 export const banner = {
   title: "Nuestros Servicios",
-  subtitle: "Tarimas y Empaques Industriales",
+  subtitle: "Empaques Industriales ALPA",
   image,
   imageAlt: "Servicios de empaque industrial de madera",
 };

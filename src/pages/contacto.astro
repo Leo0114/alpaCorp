@@ -8,7 +8,7 @@ import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { contact, getWhatsapp } from "@/constants/site";
 import { getI18N, getLang } from "@/i18n/i18n";
-import heroImage from "@/assets/images/five.avif";
+import heroImage from "@/assets/images/contacto.avif";
 
 const lang = getLang(Astro.currentLocale);
 const i18n = getI18N(lang);
@@ -16,9 +16,24 @@ const data = i18n.contacto;
 const whatsappData = getWhatsapp(lang);
 
 const datos = [
-  { icon: FiMapPin, text: i18n.site.address, href: contact.addressHref, external: true },
-  { icon: FiPhone, text: i18n.site.phone, href: contact.phoneHref, external: false },
-  { icon: FiMail, text: i18n.site.email, href: contact.emailHref, external: false },
+  {
+    icon: FiMapPin,
+    text: i18n.site.address,
+    href: contact.addressHref,
+    external: true,
+  },
+  {
+    icon: FiPhone,
+    text: i18n.site.phone,
+    href: contact.phoneHref,
+    external: false,
+  },
+  {
+    icon: FiMail,
+    text: i18n.site.email,
+    href: contact.emailHref,
+    external: false,
+  },
 ];
 ---
 

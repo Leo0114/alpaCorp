@@ -1,7 +1,7 @@
 import image from "@/assets/images/4786.avif";
 
 export const banner = {
-  title: "Tarimas y Empaques Industriales",
+  title: "Empaques Industriales ALPA",
   subtitle: "Nuestros productos",
   image,
   imageAlt: "Tarimas de madera apiladas",

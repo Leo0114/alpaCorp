@@ -91,7 +91,7 @@ export const clientesSection = {
 // ---------------------------------------------------------------------------
 export const heroSlides = [
   {
-    topTag: "TARIMAS Y EMPAQUES INDUSTRIALES",
+    topTag: "EMPAQUES INDUSTRIALES ALPA",
     title: "Protegemos lo que mueve tu industria.",
     subtitle:
       "Más de 30 años diseñando soluciones de embalaje industrial para empresas que no pueden permitirse fallar.",

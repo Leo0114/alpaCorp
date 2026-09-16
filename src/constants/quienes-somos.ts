@@ -3,7 +3,7 @@ import heroImage from "@/assets/images/four.avif";
 
 export const banner = {
   title: "Quienes Somos",
-  subtitle: "Tarimas y Empaques Industriales",
+  subtitle: "Empaques Industriales ALPA",
   image: heroImage,
   imageAlt: "Planta de Empaques Industriales ALPA",
 };
