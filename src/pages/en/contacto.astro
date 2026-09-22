@@ -6,7 +6,7 @@ import ContactForm from "@/components/contacto/ContactForm";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
-import { contact, getWhatsapp } from "@/constants/site";
+import { contact, getSocialLinks, getWhatsapp } from "@/constants/site";
 import { getI18N, getLang } from "@/i18n/i18n";
 import heroImage from "@/assets/images/contacto.avif";
 
@@ -14,6 +14,7 @@ const lang = getLang(Astro.currentLocale ?? "en");
 const i18n = getI18N(lang);
 const data = i18n.contacto;
 const whatsappData = getWhatsapp(lang);
+const socialLinks = getSocialLinks();
 
 const datos = [
   {
@@ -110,11 +111,32 @@ const datos = [
             }
           </ul>
 
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+              Follow us
+            </p>
+            <div class="flex items-center gap-3">
+              {
+                socialLinks.map(({ name, href, icon: Icon }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={name}
+                    class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-secondary hover:text-white hover:scale-110"
+                  >
+                    <Icon className="h-4.5 w-4.5" />
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
           <a
             href={whatsappData.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-primary"
+            class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-primary"
           >
             <FaWhatsapp className="text-lg" aria-hidden="true" />
             {data.contactCta.whatsappLabel}

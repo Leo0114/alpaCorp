@@ -2,10 +2,35 @@ import logo from "@/assets/images/logo.png";
 import type { Lang } from "@/i18n/ui";
 import { getI18N } from "@/i18n/i18n";
 import { localizePath } from "@/i18n/utils";
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 export const site = {
   logo,
 };
+
+export const socialLinks = {
+  linkedin: "https://www.linkedin.com/company/empaques-industriales-alpa/",
+  facebook: "https://www.facebook.com/share/19T8iobSaj/?mibextid=wwXIfr",
+  instagram: "https://www.instagram.com/alpa.empaquesindustriales?stkn=ZDI5MnQ3dDRnZ3Ry",
+};
+
+export const getSocialLinks = () => [
+  {
+    name: "LinkedIn",
+    href: socialLinks.linkedin,
+    icon: FaLinkedin,
+  },
+  {
+    name: "Facebook",
+    href: socialLinks.facebook,
+    icon: FaFacebook,
+  },
+  {
+    name: "Instagram",
+    href: socialLinks.instagram,
+    icon: FaInstagram,
+  },
+];
 
 export const getNavLinks = (lang: Lang) => {
   const i18n = getI18N(lang);
@@ -39,3 +64,4 @@ export const getWhatsapp = (lang: Lang) => {
     href: `https://wa.me/${number}?text=${encodeURIComponent(message)}`,
   };
 };
+

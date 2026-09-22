@@ -2,13 +2,14 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
-import { contact, getNavLinks, site } from "@/constants/site";
+import { contact, getNavLinks, getSocialLinks, site } from "@/constants/site";
 import { getI18N, getLang } from "@/i18n/i18n";
 import { localizePath } from "@/i18n/utils";
 
 const lang = getLang(Astro.currentLocale);
 const i18n = getI18N(lang);
 const navLinks = getNavLinks(lang);
+const socialLinks = getSocialLinks();
 const homeHref = localizePath(lang, "index");
 
 const productos = (
@@ -40,6 +41,21 @@ const copyrightText = i18n.footer.copyright.replace(
         </span>
       </a>
       <p class="mt-5 text-sm leading-relaxed text-white/70">{i18n.footer.about}</p>
+      <div class="mt-6 flex items-center gap-3">
+        {
+          socialLinks.map(({ name, href, icon: Icon }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={name}
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-secondary hover:text-white hover:scale-110"
+            >
+              <Icon className="h-4.5 w-4.5" />
+            </a>
+          ))
+        }
+      </div>
     </div>
 
     <nav aria-label={i18n.footer.navTitle}>
