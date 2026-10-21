@@ -1,0 +1,116 @@
+---
+import {
+  MdOutlineCall,
+  MdOutlineDirections,
+  MdOutlineLocationOn,
+  MdOutlineMap,
+  MdOutlineSchedule,
+} from "react-icons/md";
+import LinkButton from "@/components/ventas/ui/LinkButton.astro";
+import t from "@/constants/ventas.json";
+
+const { retail, company } = t;
+
+const facts = [
+  {
+    Icon: MdOutlineLocationOn,
+    label: retail.addressLabel,
+    value: company.address,
+  },
+  { Icon: MdOutlineSchedule, label: retail.hoursLabel, value: retail.hours },
+  {
+    Icon: MdOutlineCall,
+    label: retail.phoneLabel,
+    value: company.phone,
+    href: company.phoneHref,
+  },
+];
+---
+
+<section class="bg-white py-16 md:py-24" aria-labelledby="retail-title">
+  <div class="mx-auto max-w-7xl px-4 md:px-12">
+    <div
+      class="reveal grid items-center gap-10 rounded-lg bg-timber-light/35 p-6 ring-1 ring-timber/30 md:p-10 lg:grid-cols-12"
+    >
+      <div class="flex flex-col gap-5 lg:col-span-7">
+        <div>
+          <span
+            class="text-[0.6875rem] leading-4 font-bold tracking-widest text-timber-ink uppercase"
+            >{retail.eyebrow}</span
+          >
+          <h2
+            id="retail-title"
+            class="mt-2 text-2xl leading-tight font-bold tracking-[-0.018em] text-balance text-navy-900 md:text-[1.75rem]"
+          >
+            {retail.title}
+          </h2>
+        </div>
+        <p class="leading-relaxed text-ink-muted">{retail.description}</p>
+
+        <dl class="grid gap-3 sm:grid-cols-3">
+          {
+            facts.map(({ Icon, label, value, href }) => (
+              <div class="rounded-md bg-white p-4 ring-1 ring-line">
+                <dt class="flex items-center gap-1.5 text-[0.6875rem] leading-4 font-bold tracking-[0.08em] text-navy-900 uppercase">
+                  <Icon className="size-4 text-orange" aria-hidden="true" />
+                  {label}
+                </dt>
+                <dd class="mt-1.5 text-sm leading-snug text-ink">
+                  {href ? (
+                    <a
+                      href={href}
+                      class="font-bold tabular-nums hover:text-navy-800"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    value
+                  )}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+
+        <div>
+          <LinkButton href={company.mapsHref} external variant="navy" size="sm">
+            <MdOutlineMap className="size-[1.125rem]" aria-hidden="true" />
+            {retail.cta}
+          </LinkButton>
+        </div>
+      </div>
+
+      <figure class="lg:col-span-5">
+        <div
+          class="relative h-80 overflow-hidden rounded-lg bg-navy-100 shadow-lift ring-1 ring-line"
+        >
+          <iframe
+            src={company.mapsEmbed}
+            title={`Mapa: ${retail.mapTitle}, ${company.address}`}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="size-full border-0 grayscale-[30%]"></iframe>
+          <figcaption
+            class="pointer-events-none absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-md bg-navy-900/85 px-4 py-3 text-white backdrop-blur-md"
+          >
+            <span>
+              <span class="block text-[0.9375rem] font-bold"
+                >{retail.mapTitle}</span
+              >
+              <span
+                class="block text-[0.6875rem] leading-4 font-bold tracking-[0.08em] text-navy-200 uppercase"
+              >
+                {retail.mapSubtitle}
+              </span>
+            </span>
+            <span
+              class="grid size-9 shrink-0 place-items-center rounded-full bg-orange"
+            >
+              <MdOutlineDirections className="size-5" aria-hidden="true" />
+            </span>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>

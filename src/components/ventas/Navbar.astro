@@ -1,0 +1,239 @@
+---
+import { Image } from "astro:assets";
+import { FaWhatsapp } from "react-icons/fa6";
+import { MdClose, MdMenu, MdOutlinePhone } from "react-icons/md";
+import logo from "@/assets/images/logo.png";
+import LinkButton from "@/components/ventas/ui/LinkButton.astro";
+import t from "@/constants/ventas.json";
+
+const { company, announcement, nav } = t;
+---
+
+<!-- Aviso de mayoreo + contacto directo: se desplaza con la página, no consume espacio fijo -->
+<div class="bg-navy-900 text-[0.8125rem] leading-snug text-navy-100">
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-center gap-6 px-4 py-2 md:px-12 lg:justify-between"
+  >
+    <p class="text-center lg:text-left">
+      <strong class="font-semibold text-white">{announcement.strong}</strong>{
+        " "
+      }
+      {announcement.text}
+    </p>
+    <div class="hidden shrink-0 items-center gap-4 lg:flex">
+      <a
+        href={company.phoneHref}
+        class="inline-flex items-center gap-1.5 transition-colors hover:text-white"
+      >
+        <MdOutlinePhone className="size-4" aria-hidden="true" />
+        <span class="sr-only">{nav.phoneLabel}:</span>
+        <span class="font-bold text-white tabular-nums">{company.phone}</span>
+      </a>
+      <a
+        href={company.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex h-7 items-center gap-1.5 rounded-sm bg-emerald-300 px-2.5 font-bold text-emerald-950 transition-[scale,background-color] duration-200 hover:bg-[#59df89] active:scale-[0.97]"
+      >
+        <FaWhatsapp className="size-3.5" aria-hidden="true" />
+        {nav.whatsapp}
+      </a>
+    </div>
+  </div>
+</div>
+
+<header
+  id="site-header"
+  data-open="false"
+  data-scrolled="false"
+  class="group/nav sticky top-0 z-50 border-b border-transparent bg-white/80 backdrop-blur-xl backdrop-saturate-180 transition-[border-color,box-shadow] duration-300 data-[scrolled=true]:border-line data-[scrolled=true]:shadow-lift contrast-more:bg-white"
+>
+  <div
+    class="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 md:h-20 md:px-12"
+  >
+    <a
+      href="/"
+      class="flex shrink-0 items-center gap-3 rounded-md"
+      aria-label={`${company.name} — Inicio`}
+    >
+      <Image
+        src={logo}
+        alt=""
+        width={64}
+        height={44}
+        class="h-10 w-auto md:h-11"
+        loading="eager"
+      />
+      <span class="hidden flex-col sm:flex">
+        <span
+          class="text-[1.0625rem] leading-tight font-bold tracking-[-0.015em] text-navy-900"
+        >
+          {company.name}
+        </span>
+        <span
+          class="text-[0.6875rem] leading-4 font-semibold tracking-[0.08em] text-ink-subtle uppercase"
+        >
+          {company.tagline}
+        </span>
+      </span>
+    </a>
+
+    <nav aria-label="Principal" class="hidden xl:block">
+      <ul class="flex items-center gap-0.5">
+        {
+          nav.links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={link.current ? "page" : undefined}
+                class="relative rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap text-ink-muted transition-colors hover:bg-navy-50 hover:text-navy-900 aria-[current=page]:font-semibold aria-[current=page]:text-navy-900 aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:rounded-full aria-[current=page]:after:bg-orange"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex shrink-0 items-center gap-2 md:gap-3">
+      <LinkButton href="#cotizacion" size="sm" class="hidden sm:inline-flex">
+        <span class="2xl:hidden">{nav.cta}</span>
+        <span class="hidden 2xl:inline">{nav.ctaLong}</span>
+      </LinkButton>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="relative grid size-11 place-items-center rounded-md text-navy-900 transition-[scale,background-color] duration-200 hover:bg-navy-50 active:scale-[0.94] xl:hidden"
+      >
+        <span class="sr-only">Abrir menú</span>
+        <MdMenu
+          className="col-start-1 row-start-1 size-6 transition-[opacity,rotate] duration-300 ease-spring group-data-[open=true]/nav:rotate-90 group-data-[open=true]/nav:opacity-0"
+          aria-hidden="true"
+        />
+        <MdClose
+          className="col-start-1 row-start-1 size-6 -rotate-90 opacity-0 transition-[opacity,rotate] duration-300 ease-spring group-data-[open=true]/nav:rotate-0 group-data-[open=true]/nav:opacity-100"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil: nace del botón (origen arriba-derecha) y regresa por el mismo camino -->
+  <div
+    id="mobile-menu"
+    class="invisible absolute inset-x-0 top-full origin-top-right -translate-y-2 scale-[0.98] px-4 pt-2 opacity-0 transition-[opacity,translate,scale,visibility] duration-300 ease-spring group-data-[open=true]/nav:visible group-data-[open=true]/nav:translate-y-0 group-data-[open=true]/nav:scale-100 group-data-[open=true]/nav:opacity-100 motion-reduce:translate-y-0 motion-reduce:scale-100 md:px-12 xl:hidden"
+  >
+    <nav
+      aria-label="Menú móvil"
+      class="ml-auto max-w-sm rounded-lg border border-line bg-white/95 p-2 shadow-float backdrop-blur-xl"
+    >
+      <ul class="flex flex-col">
+        {
+          nav.links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={link.current ? "page" : undefined}
+                class="flex h-12 items-center rounded-md px-4 text-[0.9375rem] font-medium text-ink-muted transition-colors hover:bg-navy-50 active:bg-navy-100 aria-[current=page]:font-semibold aria-[current=page]:text-navy-900"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-2 flex flex-col gap-2 border-t border-line p-2 pt-4">
+        <a
+          href={company.phoneHref}
+          class="flex items-center gap-2 px-2 py-1 text-sm text-ink-muted"
+        >
+          <MdOutlinePhone className="size-4" aria-hidden="true" />
+          {nav.phoneLabel}: <strong class="text-navy-900 tabular-nums"
+            >{company.phone}</strong
+          >
+        </a>
+        <LinkButton
+          href={company.whatsappHref}
+          external
+          variant="whatsapp"
+          size="sm"
+        >
+          <FaWhatsapp className="size-4" aria-hidden="true" />
+          {nav.whatsapp}
+        </LinkButton>
+        <LinkButton href="#cotizacion" size="sm">{nav.ctaLong}</LinkButton>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Velo para enfocar el menú; se toca para cerrar -->
+<div
+  id="nav-scrim"
+  aria-hidden="true"
+  class="pointer-events-none fixed inset-0 z-40 bg-navy-950/30 opacity-0 transition-opacity duration-300 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 xl:hidden"
+  data-open="false"
+>
+</div>
+
+<script>
+  let controller: AbortController | undefined;
+
+  const setup = () => {
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+    const header = document.getElementById("site-header");
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const scrim = document.getElementById("nav-scrim");
+    if (!header || !toggle || !menu || !scrim) return;
+
+    const setOpen = (open: boolean) => {
+      header.dataset.open = String(open);
+      scrim.dataset.open = String(open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.querySelector(".sr-only")!.textContent = open
+        ? "Cerrar menú"
+        : "Abrir menú";
+    };
+
+    toggle.addEventListener("click", () =>
+      setOpen(header.dataset.open !== "true"),
+    );
+    scrim.addEventListener("click", () => setOpen(false));
+    menu.addEventListener("click", (e) => {
+      if ((e.target as Element).closest("a")) setOpen(false);
+    });
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "Escape" && header.dataset.open === "true") {
+          setOpen(false);
+          toggle.focus();
+        }
+      },
+      { signal },
+    );
+    matchMedia("(min-width: 80rem)").addEventListener(
+      "change",
+      (e) => e.matches && setOpen(false),
+      { signal },
+    );
+
+    // Borde/sombra sólo cuando el contenido pasa por debajo de la barra
+    const onScroll = () => {
+      header.dataset.scrolled = String(
+        header.getBoundingClientRect().top <= 0 && window.scrollY > 40,
+      );
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true, signal });
+  };
+
+  document.addEventListener("astro:page-load", setup);
+</script>

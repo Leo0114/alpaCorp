@@ -1,0 +1,213 @@
+{
+    "company": {
+        "name": "Empaques Industriales ALPA",
+        "legalName": "Alpacorp Industrial S.A. de C.V.",
+        "tagline": "Alpacorp | Fabricación & Logística",
+        "phone": "81 1535 3240",
+        "phoneHref": "tel:+528115353240",
+        "whatsappHref": "https://wa.me/528115353240",
+        "email": "ventas@alpacorp.mx",
+        "address": "Calle Benito Juárez #2521, Col. Guadalupe Victoria, Guadalupe, N.L.",
+        "mapsHref": "https://maps.google.com/?q=Calle+Benito+Juarez+2521+Guadalupe+Victoria+Guadalupe+NL",
+        "mapsEmbed": "https://www.google.com/maps?q=Calle+Benito+Juarez+2521,+Guadalupe+Victoria,+Guadalupe,+N.L.&output=embed",
+        "hours": "Lun - Vie: 8:00 AM - 6:00 PM"
+    },
+    "announcement": {
+        "strong": "Venta de Mayoreo (Envío a Planta):",
+        "text": "Cotizaciones especiales desde 100 piezas en tarimas y 200 piezas en cajas/huacales de madera."
+    },
+    "nav": {
+        "links": [
+            {
+                "label": "Inicio",
+                "href": "/",
+                "current": true
+            },
+            {
+                "label": "Tarimas",
+                "href": "#"
+            },
+            {
+                "label": "Cajas & Huacales",
+                "href": "#"
+            },
+            {
+                "label": "Certificación NIMF-15",
+                "href": "#"
+            },
+            {
+                "label": "Contacto",
+                "href": "#"
+            }
+        ],
+        "phoneLabel": "Teléfono directo",
+        "whatsapp": "WhatsApp Ventas",
+        "cta": "Solicitar Cotización",
+        "ctaLong": "Solicitar Cotización de Mayoreo"
+    },
+    "hero": {
+        "badgeStrong": "Mayoreo industrial",
+        "badge": "Pedidos a partir de 100 piezas en tarimas y 200 piezas en cajas y huacales.",
+        "title": "Tarimas y Cajas de Madera por Mayoreo en Monterrey",
+        "subtitle": "Asegura el suministro de tarimas y empaques industriales de tu planta. Certificación NOM-144 para exportación.",
+        "ctaPrimary": "Cotizar Mayoreo Ahora",
+        "ctaSecondary": "Hablar con un Asesor por WhatsApp",
+        "imageAlt": "Caja de madera industrial a medida con refuerzos de pino para embalaje de vidrio templado",
+        "imageCaption": "Cajas de madera a medida",
+        "imageTag": "Tratamiento HT · NOM-144",
+        "trust": [
+            {
+                "icon": "calendar",
+                "title": "+30 Años de Experiencia en el Noreste de México",
+                "caption": "Solidez & Capacidad Logística"
+            },
+            {
+                "icon": "verified",
+                "title": "Tratamiento Térmico HT Certificado NOM-144-SEMARNAT-2017 / NIMF-15",
+                "caption": "Aduana & Exportación Directa"
+            },
+            {
+                "icon": "factory",
+                "title": "Proveedor de +50 Marcas Líderes en la Región",
+                "caption": "Cadenas Tier-1 & Maquiladoras"
+            }
+        ]
+    },
+    "catalog": {
+        "eyebrow": "Catálogo Técnico Mayorista",
+        "title": "Soluciones de Embalaje Industrial Fabricadas a la Medida",
+        "subtitle": "Diseños adaptados a las especificaciones y peso de tu carga para optimizar tu logística.",
+        "minimumLabel": "Mínimo de envío",
+        "products": [
+            {
+                "image": "estandar",
+                "title": "Tarima Estándar de Madera",
+                "description": "Estructura robusta para transporte y almacenamiento de cargas generales. Fabricada con madera de pino nacional e importada.",
+                "minimum": 100,
+                "cta": "Cotizar Tarima Estándar",
+                "product": "Tarimas Estándar",
+                "imageAlt": "Tarima estándar de madera de pino"
+            },
+            {
+                "image": "resaque",
+                "title": "Tarima con Resaque (Entrada por 4 lados)",
+                "description": "Permite el acceso ágil de montacargas y patines desde cualquier ángulo, reduciendo tiempos de maniobra en almacén.",
+                "minimum": 100,
+                "cta": "Cotizar Tarima con Resaque",
+                "product": "Tarimas Estándar",
+                "imageAlt": "Tarima de madera con resaque para entrada de montacargas por cuatro lados"
+            },
+            {
+                "image": "cubo",
+                "title": "Tarima de Cubo y Tarima Volada",
+                "description": "Estructuras reforzadas de alta resistencia para cargas pesadas, diseñadas para optimizar espacio en contenedor.",
+                "minimum": 100,
+                "cta": "Cotizar Tarimas Especiales",
+                "product": "Tarimas Especiales",
+                "imageAlt": "Tarima de cubo de madera reforzada para carga pesada"
+            },
+            {
+                "image": "carton",
+                "title": "Cajas de Madera a Medida",
+                "description": "Empaques cerrados y adaptados para la contención y protección de maquinaria o mercancía delicada en traslados largos.",
+                "minimum": 200,
+                "cta": "Cotizar Cajas de Madera",
+                "product": "Cajas de Madera",
+                "imageAlt": "Caja de madera cerrada a medida para mercancía delicada"
+            },
+            {
+                "image": "huacal",
+                "title": "Huacales de Madera Industriales",
+                "description": "Cajas caladas resistentes para ventilación y protección de productos de alto volumen o uso agrícola e industrial.",
+                "minimum": 200,
+                "cta": "Cotizar Huacales",
+                "product": "Huacales",
+                "imageAlt": "Huacales de madera industriales con travesaños diagonales"
+            },
+            {
+                "image": "reciclada",
+                "title": "Empaques Combinados y Tarimas Recicladas",
+                "description": "Soluciones económicas y sustentables que combinan la resistencia de la madera con la ligereza del cartón industrial.",
+                "minimum": 100,
+                "cta": "Cotizar Opciones Sustentables",
+                "product": "Tarimas Especiales",
+                "imageAlt": "Pila de tarimas de madera recicladas"
+            }
+        ]
+    },
+    "why": {
+        "eyebrow": "Respaldo a Plantas de Manufactura",
+        "title": "¿Por qué las plantas industriales confían en ALPAcorp?",
+        "pillars": [
+            {
+                "icon": "manufacturing",
+                "tone": "navy",
+                "title": "Cero Paros de Producción",
+                "description": "Implementamos administración de inventarios con entregas programadas para que tu línea de producción jamás se quede sin tarimas.",
+                "tag": "Entrega Just-In-Time"
+            },
+            {
+                "icon": "fire",
+                "tone": "emerald",
+                "title": "Certificación HT NOM-144 para Exportación",
+                "description": "Contamos con hornos de tratamiento térmico propio cumpliendo la norma NOM-144-SEMARNAT-2017 / NIMF-15 para tránsito aduanal sin complicaciones.",
+                "tag": "Sello Oficial NOM-144"
+            },
+            {
+                "icon": "carpenter",
+                "tone": "timber",
+                "title": "Resistencia y Calidad de Materiales",
+                "description": "Seleccionamos pino nacional e importado clasificado para ofrecer el soporte exacto que requiere tu tipo de producto.",
+                "tag": "Madera Estructural de Pino"
+            },
+            {
+                "icon": "speed",
+                "tone": "sky",
+                "title": "Respuesta Inmediata a Compras",
+                "description": "Cotizaciones formales y atención directa para departamentos de logística y adquisiciones en Monterrey y el Noreste.",
+                "tag": "Respuesta < 2 Horas"
+            }
+        ]
+    },
+    "quote": {
+        "eyebrow": "Atención a Licitaciones y Órdenes Abiertas",
+        "title": "Suministro Industrial Confiable para tu Línea de Ensamble",
+        "description": "Nuestro equipo de ingeniería de empaque calcula capacidad estática y dinámica según la carga de tus contenedores. Recibe cotización formal con ficha técnica adjunta.",
+        "deskTitle": "Mesa de Adquisiciones ALPA",
+        "deskSubtitle": "Planta Guadalupe · Despacho Directo",
+        "coverage": "Cobertura de entrega a planta: Monterrey, Apodaca, Guadalupe, Pesquería, Santa Catarina, Saltillo y Ramos Arizpe.",
+        "sealTitle": "Garantía de Certificación Fitosanitaria",
+        "sealText": "Cada lote exportable incluye folio oficial avalado ante SEMARNAT y documentación para agente aduanal.",
+        "form": {
+            "title": "Solicita tu Cotización de Mayoreo",
+            "subtitle": "Obtén precios directos de fábrica y tiempos de entrega garantizados para tu planta.",
+            "submit": "Solicitar Cotización de Mayoreo",
+            "sending": "Enviando solicitud…",
+            "privacy": "Tus datos están protegidos bajo nuestro protocolo de confidencialidad comercial.",
+            "success": "Solicitud enviada con éxito",
+            "successDetail": "Un asesor técnico de ALPAcorp se comunicará contigo en breve."
+        }
+    },
+    "retail": {
+        "eyebrow": "Venta en Mostrador & Menudeo",
+        "title": "¿Buscas comprar por pieza o volúmenes menores?",
+        "description": "Para compras al menudeo o cantidades inferiores a los mínimos de mayoreo, te atendemos directamente en nuestra planta con venta por pieza y recolección en mostrador.",
+        "addressLabel": "Dirección",
+        "hoursLabel": "Atención",
+        "hours": "Lunes a Viernes y Sábados",
+        "phoneLabel": "Teléfono",
+        "cta": "Ver Ubicación en Google Maps",
+        "mapTitle": "Planta Matriz ALPAcorp",
+        "mapSubtitle": "Guadalupe, Nuevo León"
+    },
+    "footer": {
+        "description": "Soluciones integrales de empaque de madera de grado industrial, tarimas de carga pesada y embalajes certificados para exportación.",
+        "locationTitle": "Ubicación Operativa",
+        "plantLabel": "Planta Guadalupe",
+        "plantTag": "Centro de Producción & Patio Logístico",
+        "contactTitle": "Canales de Atención",
+        "contactText": "Contacto oficial para adquisiciones industriales y licitaciones:",
+        "legal": "Aviso de Privacidad y Términos Legales",
+        "copyright": "Empaques Industriales Alpa S.A. de C.V. Todos los Derechos Reservados."
+    }
+}

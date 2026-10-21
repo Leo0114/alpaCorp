@@ -1,0 +1,24 @@
+---
+import Navbar from "@/components/ventas/Navbar.astro";
+import Footer from "@/components/ventas/Footer.astro";
+import Hero from "@/components/ventas/home/Hero.astro";
+import Catalog from "@/components/ventas/home/Catalog.astro";
+import WhyUs from "@/components/ventas/home/WhyUs.astro";
+import Quote from "@/components/ventas/home/Quote.astro";
+import Retail from "@/components/ventas/home/Retail.astro";
+import VentasLayout from "@/layouts/VentasLayout.astro";
+
+export const prerender = true;
+---
+
+<VentasLayout>
+  <Navbar />
+  <main id="contenido">
+    <Hero />
+    <Catalog />
+    <WhyUs />
+    <Quote />
+    <Retail />
+  </main>
+  <Footer />
+</VentasLayout>

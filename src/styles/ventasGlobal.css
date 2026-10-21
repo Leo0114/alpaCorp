@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark,.dark *));
+
+/*
+ * Tokens del sistema "Heavy Industrial Timber & Logistics" (Stitch).
+ * Navy = estructura y autoridad · Naranja = sólo conversión · Verde = certificación.
+ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-navy-950: #00162d;
+  --color-navy-900: #0f2b48;
+  --color-navy-800: #1a3d63;
+  --color-navy-700: #2f4867;
+  --color-navy-300: #afc8ed;
+  --color-navy-200: #d2e4ff;
+  --color-navy-100: #e4effe;
+  --color-navy-50: #eef4ff;
+
+  --color-ink: #121c27;
+  --color-ink-muted: #43474d;
+  --color-ink-subtle: #6c757d;
+
+  --color-canvas: #ffffff;
+  --color-surface: #f7f9ff;
+  --color-surface-subtle: #f8f9fa;
+  --color-line: #d8dee4;
+
+  --color-orange: #ff6b00;
+  --color-orange-hover: #e05e00;
+
+  --color-timber: #d2b48c;
+  --color-timber-light: #e8dcc4;
+  --color-timber-ink: #725a39;
+
+  --color-emerald: #00a859;
+  --color-emerald-950: #003216;
+  --color-emerald-900: #00431d;
+  --color-emerald-300: #77fca3;
+
+  --shadow-lift: 0 4px 12px rgb(15 43 72 / 0.08);
+  --shadow-float: 0 12px 32px rgb(15 43 72 / 0.16);
+
+  /* Curva cercana a un resorte críticamente amortiguado (sin rebote) */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth scroll-pt-24 motion-reduce:scroll-auto;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    @apply bg-navy-200 text-navy-950;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline-2 outline-offset-3 outline-orange;
+  }
+}
+
+/* Revelado al hacer scroll (lo activa el script del Layout) */
+@utility reveal {
+  @apply translate-y-4 opacity-0 transition-[opacity,translate] duration-700 ease-spring motion-reduce:translate-y-0 motion-reduce:duration-300;
+
+  &.is-visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  /* Sin JavaScript el contenido nunca queda oculto */
+  @media (scripting: none) {
+    @apply translate-y-0 opacity-100;
+  }
+}

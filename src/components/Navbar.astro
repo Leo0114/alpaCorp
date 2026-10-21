@@ -18,7 +18,9 @@ const isActive = (href: string) =>
     : pathname.startsWith(href);
 ---
 
-<header class="sticky top-0 z-40 w-full border-b border-line bg-canvas/95 backdrop-blur-md transition-colors duration-200 shadow-sm">
+<header
+  class="sticky top-0 z-40 w-full border-b border-line bg-canvas/95 backdrop-blur-md transition-colors duration-200 shadow-sm"
+>
   <nav
     class="container-x relative flex h-20 items-center justify-between gap-6"
     aria-label={i18n.nav.home}
@@ -35,7 +37,9 @@ const isActive = (href: string) =>
         loading="eager"
         class="h-11 w-auto object-contain dark:brightness-0 dark:invert transition-all duration-200"
       />
-      <span class="hidden text-sm font-bold leading-tight text-ink lg:inline-block">
+      <span
+        class="hidden text-sm font-bold leading-tight text-ink lg:inline-block"
+      >
         {i18n.site.tagline}
       </span>
       <span class="sr-only">{i18n.site.name}</span>
@@ -119,12 +123,18 @@ const isActive = (href: string) =>
           </li>
         ))
       }
-      <li class="mt-2 flex items-center justify-between border-t border-line px-3 pt-3">
-        <span class="text-xs font-semibold uppercase tracking-widest text-muted">{i18n.nav.language}</span>
+      <li
+        class="mt-2 flex items-center justify-between border-t border-line px-3 pt-3"
+      >
+        <span class="text-xs font-semibold uppercase tracking-widest text-muted"
+          >{i18n.nav.language}</span
+        >
         <LangToggle label={i18n.nav.language} />
       </li>
       <li class="flex items-center justify-between px-3 py-2">
-        <span class="text-xs font-semibold uppercase tracking-widest text-muted">{i18n.nav.theme}</span>
+        <span class="text-xs font-semibold uppercase tracking-widest text-muted"
+          >{i18n.nav.theme}</span
+        >
         <ThemeToggle />
       </li>
     </ul>
@@ -139,7 +149,8 @@ const isActive = (href: string) =>
     navAbortController = new AbortController();
     const signal = navAbortController.signal;
 
-    const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    const toggle =
+      document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
     const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
     if (!toggle || !menu) return;
 

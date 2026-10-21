@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Variant = "primary" | "navy" | "whatsapp" | "ghost-light" | "outline";
+type Size = "md" | "sm";
+
+interface Props extends HTMLAttributes<"a"> {
+  variant?: Variant;
+  size?: Size;
+  external?: boolean;
+}
+
+const { variant = "primary", size = "md", external = false, class: className, ...rest } = Astro.props;
+
+// La retroalimentación vive en el pointer-down (active:), no al soltar
+const base =
+  "inline-flex items-center justify-center gap-2 rounded-md font-semibold whitespace-nowrap select-none [-webkit-tap-highlight-color:transparent] transition-[scale,background-color,box-shadow,color] duration-200 ease-spring active:scale-[0.97] active:duration-75 motion-reduce:active:scale-100";
+
+const sizes: Record<Size, string> = {
+  md: "h-12 px-6 text-[0.9375rem]",
+  sm: "h-11 px-5 text-sm",
+};
+
+const variants: Record<Variant, string> = {
+  primary:
+    "bg-orange text-white shadow-[0_1px_2px_rgb(0_0_0/0.12),inset_0_1px_0_rgb(255_255_255/0.18)] hover:bg-orange-hover",
+  navy: "bg-navy-900 text-white hover:bg-navy-800",
+  whatsapp:
+    "bg-emerald-950 text-emerald-300 shadow-[inset_0_0_0_1px_rgb(119_252_163/0.28)] hover:bg-emerald-900",
+  "ghost-light":
+    "bg-white/8 text-white shadow-[inset_0_0_0_1px_rgb(255_255_255/0.22)] hover:bg-white/14",
+  outline:
+    "text-navy-900 shadow-[inset_0_0_0_1.5px_var(--color-navy-900)] hover:bg-navy-900/5",
+};
+
+const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+---
+
+<a class:list={[base, sizes[size], variants[variant], className]} {...externalProps} {...rest}>
+  <slot />
+</a>

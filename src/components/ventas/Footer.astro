@@ -1,0 +1,86 @@
+---
+import t from "@/constants/ventas.json";
+
+const { company, footer } = t;
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-navy-900 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-14 md:px-12 md:py-16">
+    <div class="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-3">
+      <div class="flex flex-col gap-3">
+        <p class="text-xl font-bold tracking-[-0.012em]">{company.name}</p>
+        <p
+          class="text-[0.6875rem] leading-4 font-bold tracking-widest text-navy-300 uppercase"
+        >
+          {company.legalName}
+        </p>
+        <p class="text-sm leading-relaxed text-navy-300">
+          {footer.description}
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <h2
+          class="text-[0.6875rem] leading-4 font-bold tracking-[0.08em] text-orange uppercase"
+        >
+          {footer.locationTitle}
+        </h2>
+        <address class="text-sm leading-relaxed text-navy-300 not-italic">
+          <span class="block font-semibold text-white"
+            >{footer.plantLabel}:</span
+          >
+          {company.address}
+        </address>
+        <span
+          class="inline-flex items-center gap-2 self-start rounded-md bg-white/5 px-3 py-2 text-[0.6875rem] leading-4 font-bold tracking-[0.08em] uppercase ring-1 ring-white/10"
+        >
+          <span class="size-2 rounded-full bg-emerald-300" aria-hidden="true"
+          ></span>
+          {footer.plantTag}
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <h2
+          class="text-[0.6875rem] leading-4 font-bold tracking-[0.08em] text-orange uppercase"
+        >
+          {footer.contactTitle}
+        </h2>
+        <p class="text-sm text-navy-300">{footer.contactText}</p>
+        <ul class="flex flex-col gap-1 text-sm">
+          <li>
+            <a
+              href={`mailto:${company.email}`}
+              class="font-medium transition-colors hover:text-orange"
+              >{company.email}</a
+            >
+          </li>
+          <li>
+            <a
+              href={company.phoneHref}
+              class="font-semibold tabular-nums transition-colors hover:text-orange"
+            >
+              Tel: {company.phone}
+            </a>
+          </li>
+        </ul>
+        <p class="text-[0.8125rem] text-navy-300">Horario: {company.hours}</p>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-center justify-between gap-4 pt-6 text-sm text-navy-300 md:flex-row"
+    >
+      <a
+        href="#"
+        class="underline-offset-4 transition-colors hover:text-white hover:underline"
+        >{footer.legal}</a
+      >
+      <p class="text-center text-[0.8125rem] md:text-right">
+        © {year}
+        {footer.copyright}
+      </p>
+    </div>
+  </div>
+</footer>

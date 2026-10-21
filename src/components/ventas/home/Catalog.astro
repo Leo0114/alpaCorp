@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { MdArrowForward } from "react-icons/md";
+import estandar from "@/assets/ventas/Estandar.webp";
+import resaque from "@/assets/ventas/resaque.webp";
+import cubo from "@/assets/ventas/cubo.webp";
+import carton from "@/assets/ventas/carton.avif";
+import huacal from "@/assets/ventas/huacal.webp";
+import reciclada from "@/assets/ventas/reciclada.webp";
+import t from "@/constants/ventas.json";
+
+const { catalog } = t;
+
+const images: Record<string, ImageMetadata> = {
+  estandar,
+  resaque,
+  cubo,
+  carton,
+  huacal,
+  reciclada,
+};
+---
+
+<section
+  id="catalogo"
+  class="bg-surface-subtle py-16 md:py-24"
+  aria-labelledby="catalog-title"
+>
+  <div class="mx-auto max-w-7xl px-4 md:px-12">
+    <header class="reveal mb-10 max-w-3xl md:mb-14">
+      <span
+        class="inline-block rounded-sm bg-timber-light/70 px-3 py-1 text-[0.6875rem] leading-4 font-bold tracking-widest text-navy-900 uppercase"
+      >
+        {catalog.eyebrow}
+      </span>
+      <h2
+        id="catalog-title"
+        class="mt-4 text-[clamp(1.75rem,1.3rem+1.8vw,2.5rem)] leading-[1.1] font-bold tracking-[-0.024em] text-balance text-navy-900"
+      >
+        {catalog.title}
+      </h2>
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">
+        {catalog.subtitle}
+      </p>
+    </header>
+
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        catalog.products.map((item, i) => (
+          <li class="reveal" style={`transition-delay: ${(i % 3) * 70}ms`}>
+            <article class="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-white transition-[translate,box-shadow,border-color] duration-500 ease-spring pointer-fine:hover:-translate-y-1 pointer-fine:hover:border-navy-900/20 pointer-fine:hover:shadow-float motion-reduce:hover:translate-y-0">
+              <div class="relative aspect-[16/10] overflow-hidden bg-white">
+                <Image
+                  src={images[item.image]}
+                  alt={item.imageAlt}
+                  widths={[400, 640, 860]}
+                  sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 92vw"
+                  class="size-full object-cover transition-transform duration-700 ease-spring pointer-fine:group-hover:scale-[1.04] motion-reduce:group-hover:scale-100"
+                />
+                <span
+                  class:list={[
+                    "absolute top-3 left-3 rounded-sm px-2.5 py-1 text-[0.6875rem] leading-4 font-bold tracking-[0.06em] text-white uppercase shadow-sm",
+                    item.minimum >= 200 ? "bg-orange" : "bg-navy-900",
+                  ]}
+                >
+                  {catalog.minimumLabel}:{" "}
+                  <span class="tabular-nums">{item.minimum}</span> piezas
+                </span>
+              </div>
+
+              <div class="flex grow flex-col gap-5 border-t border-line p-6">
+                <div class="grow">
+                  <h3 class="text-xl leading-snug font-bold tracking-[-0.012em] text-navy-900">
+                    {item.title}
+                  </h3>
+                  <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                    {item.description}
+                  </p>
+                </div>
+                <a
+                  href="#cotizacion"
+                  data-quote-product={item.product}
+                  class="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-navy-900 text-sm font-semibold text-white transition-[scale,background-color] duration-200 ease-spring hover:bg-navy-800 active:scale-[0.98] active:duration-75"
+                >
+                  {item.cta}
+                  <MdArrowForward
+                    className="size-4 transition-transform duration-300 ease-spring group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  // Preselecciona el producto en el formulario de cotización
+  document.addEventListener("click", (e) => {
+    const link = (e.target as Element).closest<HTMLElement>(
+      "[data-quote-product]",
+    );
+    if (!link) return;
+    const product = link.dataset.quoteProduct!;
+    // Queda guardado por si el formulario aún no se hidrata (client:visible)
+    document.documentElement.dataset.quoteProduct = product;
+    window.dispatchEvent(new CustomEvent("quote:select", { detail: product }));
+  });
+</script>
