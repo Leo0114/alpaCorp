@@ -4,35 +4,40 @@
 @custom-variant dark (&:where(.dark,.dark *));
 
 /*
- * Tokens del sistema "Heavy Industrial Timber & Logistics" (Stitch).
- * Navy = estructura y autoridad · Naranja = sólo conversión · Verde = certificación.
+ * Tokens del sistema de ventas — alineados con global.css.
+ * Primary (azul logo) = estructura y autoridad.
+ * Secondary (tan/madera) = color corporativo de acento.
+ * Orange = sólo CTA de conversión · Emerald = certificación.
  */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-navy-950: #00162d;
-  --color-navy-900: #0f2b48;
-  --color-navy-800: #1a3d63;
-  --color-navy-700: #2f4867;
-  --color-navy-300: #afc8ed;
-  --color-navy-200: #d2e4ff;
-  --color-navy-100: #e4effe;
-  --color-navy-50: #eef4ff;
+  /* Navy → ahora mapeado al azul primario del logo (#262a73) */
+  --color-navy-950: #10123a;
+  --color-navy-900: #262a73;   /* primary exact */
+  --color-navy-800: #1e225e;   /* primary-hover */
+  --color-navy-700: #373ca0;
+  --color-navy-300: #9fa3d4;
+  --color-navy-200: #c7caf0;
+  --color-navy-100: #e4e5f8;
+  --color-navy-50:  #f0f1fb;
 
-  --color-ink: #121c27;
-  --color-ink-muted: #43474d;
-  --color-ink-subtle: #6c757d;
+  --color-ink: #101223;
+  --color-ink-muted: #5b6076;
+  --color-ink-subtle: #7a7f96;
 
   --color-canvas: #ffffff;
-  --color-surface: #f7f9ff;
-  --color-surface-subtle: #f8f9fa;
-  --color-line: #d8dee4;
+  --color-surface: #f3f4f9;        /* panel del global */
+  --color-surface-subtle: #f8f8fc;
+  --color-line: #e3e5ef;           /* line del global */
 
-  --color-orange: #ff6b00;
-  --color-orange-hover: #e05e00;
+  /* CTA de conversión — mantiene naranja para máximo contraste */
+  --color-orange: #d2914a;         /* naranja cálido alineado al secondary */
+  --color-orange-hover: #b87a39;
 
+  /* Timber / madera = secondary oficial del global */
   --color-timber: #d2b48c;
-  --color-timber-light: #e8dcc4;
+  --color-timber-light: #f5ece0;   /* secondary-light del global */
   --color-timber-ink: #725a39;
 
   --color-emerald: #00a859;
@@ -40,8 +45,8 @@
   --color-emerald-900: #00431d;
   --color-emerald-300: #77fca3;
 
-  --shadow-lift: 0 4px 12px rgb(15 43 72 / 0.08);
-  --shadow-float: 0 12px 32px rgb(15 43 72 / 0.16);
+  --shadow-lift: 0 4px 12px rgb(38 42 115 / 0.08);
+  --shadow-float: 0 12px 32px rgb(38 42 115 / 0.16);
 
   /* Curva cercana a un resorte críticamente amortiguado (sin rebote) */
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
